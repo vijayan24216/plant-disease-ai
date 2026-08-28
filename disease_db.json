@@ -1,0 +1,150 @@
+{
+  "Tomato___Early_blight": {
+    "crop": "Tomato",
+    "disease_name": "Early Blight",
+    "pathogen": "Alternaria solani (Fungus)",
+    "severity": "Moderate to High",
+    "symptoms": [
+      "Dark brown to black spots with characteristic concentric rings (target spot appearance) on older leaves.",
+      "Yellow halo surrounding leaf lesions leading to premature defoliation.",
+      "Sunken, leathery dark spots near the stem end of fruits."
+    ],
+    "causes": [
+      "Warm temperatures (24°C to 29°C) combined with high humidity or prolonged leaf wetness.",
+      "Fungal spores overwintering in infected plant debris and soil.",
+      "Splashing water from rainfall or overhead irrigation spreading spores to lower leaves."
+    ],
+    "prevention": [
+      "Rotate crops with non-solanaceous crops (e.g., corn, beans) for 2–3 years.",
+      "Use drip irrigation instead of overhead watering to keep foliage dry.",
+      "Mulch soil around plants to prevent soil-borne spores from splashing onto foliage."
+    ],
+    "treatment": {
+      "organic": [
+        "Apply Copper Octanoate or Copper Hydroxide spray every 7–10 days.",
+        "Prune lower leaves (bottom 12 inches) to improve air circulation.",
+        "Spray Bio-fungicides containing Bacillus subtilis."
+      ],
+      "chemical": [
+        "Mancozeb 75% WP (2g/L water)",
+        "Chlorothalonil 75% WP",
+        "Azoxystrobin 23% SC"
+      ]
+    }
+  },
+  "Apple___Apple_scab": {
+    "crop": "Apple",
+    "disease_name": "Apple Scab",
+    "pathogen": "Venturia inaequalis (Fungus)",
+    "severity": "High",
+    "symptoms": [
+      "Olive-green to dull brown velvety spots on young leaves and fruit.",
+      "Deformed, cracked fruit with corky brown scabby patches.",
+      "Yellowing leaves dropping prematurely in mid-summer."
+    ],
+    "causes": [
+      "Cool, wet spring weather allowing ascopores to germinate on fresh leaf tissue.",
+      "Fungus overwintering in fallen dead leaves under orchard trees."
+    ],
+    "prevention": [
+      "Rake and destroy or compost fallen apple leaves in autumn.",
+      "Prune trees annually to open the canopy for sun and air drying.",
+      "Plant resistant apple varieties (e.g., Liberty, Enterprise, Freedom)."
+    ],
+    "treatment": {
+      "organic": [
+        "Apply Liquid Lime Sulfur or Potassium Bicarbonate before leaf wetness events.",
+        "Neem oil spray during green tip and cluster stages."
+      ],
+      "chemical": [
+        "Captan 50% WP (2.5g/L)",
+        "Myclobutanil 10% WP",
+        "Difenoconazole 25% EC"
+      ]
+    }
+  },
+  "Corn_(maize)___healthy": {
+    "crop": "Corn (Maize)",
+    "disease_name": "Healthy Leaf",
+    "pathogen": "None (Healthy)",
+    "severity": "None",
+    "symptoms": [
+      "Vibrant green leaf blade free of chlorosis, necrosis, or leaf spots.",
+      "Strong structural integrity with clear parallel venation."
+    ],
+    "causes": [
+      "Optimal nutrient availability (N-P-K balanced soil).",
+      "Good drainage and adequate moisture."
+    ],
+    "prevention": [
+      "Maintain regular soil testing and crop monitoring.",
+      "Ensure balanced fertilizer applications."
+    ],
+    "treatment": {
+      "organic": ["No treatment required. Continue good agronomic practices."],
+      "chemical": ["No chemical treatment needed."]
+    }
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "crop": "Bell Pepper",
+    "disease_name": "Bacterial Spot",
+    "pathogen": "Xanthomonas euvesicatoria (Bacterium)",
+    "severity": "High",
+    "symptoms": [
+      "Small, water-soaked dark green spots on leaves turning brown with yellow borders.",
+      "Leaves turn yellow and drop prematurely, exposing fruit to sunscald.",
+      "Raised, scab-like rough spots on green fruit."
+    ],
+    "causes": [
+      "Infected seeds or seedlings.",
+      "Warm, rainy, and windy conditions spreading bacteria through water droplets.",
+      "Handling infected plants when wet."
+    ],
+    "prevention": [
+      "Use certified disease-free seeds and transplants.",
+      "Avoid overhead irrigation and working in wet fields.",
+      "Practice a 2-year crop rotation."
+    ],
+    "treatment": {
+      "organic": [
+        "Fixed copper sprays combined with bio-bactericides.",
+        "Remove and burn infected foliage promptly."
+      ],
+      "chemical": [
+        "Copper Hydroxide mixed with Mancozeb (improves bactericidal efficacy).",
+        "Streptomycin sulfate (where registered for agricultural use)."
+      ]
+    }
+  },
+  "Potato___Late_blight": {
+    "crop": "Potato",
+    "disease_name": "Late Blight",
+    "pathogen": "Phytophthora infestans (Oomycete)",
+    "severity": "Critical",
+    "symptoms": [
+      "Large, dark brown to purplish-black water-soaked lesions on leaf tips and margins.",
+      "White moldy fungal growth visible on the underside of leaves during humid weather.",
+      "Rapid rot and collapse of entire canopy; foul decay odor."
+    ],
+    "causes": [
+      "Cool, moist weather (15°C to 20°C with >90% humidity).",
+      "Infected seed tubers or volunteer potato plants."
+    ],
+    "prevention": [
+      "Plant certified disease-free seed tubers.",
+      "Hill up soil around plants to protect tubers from spores.",
+      "Destroy volunteer potato plants and nightshade weeds."
+    ],
+    "treatment": {
+      "organic": [
+        "Preventative copper hydroxide sprays before weather turns cool and wet.",
+        "Destroy and remove severely infected vines."
+      ],
+      "chemical": [
+        "Cymoxanil + Mancozeb (Curzate M8)",
+        "Dimethomorph 50% WP",
+        "Metalaxyl + Mancozeb (Ridomil Gold)"
+      ]
+    }
+  }
+}

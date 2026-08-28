@@ -1,0 +1,478 @@
+{
+    "Paddy_Brown_Spot": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Brown Spot (Rice Leaf)",
+        "pathogen": "Bipolaris oryzae / Helminthosporium oryzae (Fungus)",
+        "severity": "Moderate to High",
+        "cause": "Nutrient deficient poor soils (low Potassium & Zinc) combined with relative humidity >85% and warm temperatures (25-30\u00c2\u00b0C).",
+        "symptoms": [
+            "Small oval to sesame-seed shaped brown spots on leaves with yellow chlorotic halos.",
+            "Lesions develop dark brown borders and grayish-white centers as they mature.",
+            "In severe cases, leaves wither and turn reddish-brown prematurely."
+        ],
+        "prevention": [
+            "Apply balanced Potash (MOP @ 25kg/acre) and Zinc Sulphate (10kg/acre) basal dressing.",
+            "Use certified clean disease-free seed; treat seeds with Thiram + Carbendazim @ 2g/kg."
+        ],
+        "treatment": [
+            "Organic: Spray Cow Dung Slurry 10% or Neem Seed Kernel Extract (NSKE 5%) twice at 10-day intervals.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP + Carbendazim 12% @ 2g/L water or Propiconazole 25% EC (Tilt) @ 1ml/L."
+        ]
+    },
+    "Paddy_Blast": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Paddy Leaf Blast",
+        "pathogen": "Magnaporthe oryzae (Fungus)",
+        "severity": "High to Critical",
+        "cause": "High relative humidity (>90%), dew, and cool night temperatures (20-25\u00c2\u00b0C) with excessive nitrogen fertilization.",
+        "symptoms": [
+            "Eye-shaped or spindle-shaped lesions with reddish-brown borders and gray centers on leaf blades.",
+            "Lesions enlarge and coalesce, causing entire leaves to dry up and die.",
+            "Neck rot at node bases leading to empty white heads (blank grains)."
+        ],
+        "prevention": [
+            "Avoid excessive nitrogenous fertilizer application; split N doses.",
+            "Treat seeds with Tricyclazole 75% WP @ 2g/kg seed before sowing.",
+            "Maintain 5cm water level in field during vegetative stage."
+        ],
+        "treatment": [
+            "Organic: Spray 5% Neem oil emulsion or Pseudomonas fluorescens @ 10g/L.",
+            "Pesticide/Chemical: Spray Tricyclazole 75% WP @ 0.6g/L or Isoprothiolane 40% EC @ 1.5ml/L water."
+        ]
+    },
+    "Paddy_Sheath_Blight": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Sheath Blight",
+        "pathogen": "Rhizoctonia solani (Fungus)",
+        "severity": "High",
+        "cause": "High humidity (95-100%) and warm temperatures (28-32\u00c2\u00b0C), close planting density.",
+        "symptoms": [
+            "Oval or spot-like greenish-gray lesions on leaf sheaths near water level.",
+            "Lesions develop dark brown borders with banded appearance.",
+            "Lodging of plants and poor grain filling."
+        ],
+        "prevention": [
+            "Adopt wider spacing (20cm x 15cm) to improve light penetration.",
+            "Remove sclerotia and weeds from field bunds."
+        ],
+        "treatment": [
+            "Organic: Soil application of Trichoderma viride @ 2.5 kg/ha mixed with FYM.",
+            "Pesticide/Chemical: Spray Hexaconazole 5% EC @ 2ml/L or Validamycin 3% L @ 2ml/L water."
+        ]
+    },
+    "Paddy_Healthy": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Healthy Paddy Leaf",
+        "pathogen": "None (Healthy)",
+        "severity": "None",
+        "cause": "Balanced irrigation, optimal spacing, and proper micro-nutrient balance.",
+        "symptoms": [
+            "Lush green leaves without spots, lesions, or tip drying."
+        ],
+        "prevention": [
+            "Regular field scouting and balanced NPK fertilizer application."
+        ],
+        "treatment": [
+            "No treatment required."
+        ]
+    },
+    "Wheat_Stripe_Rust": {
+        "crop": "Wheat",
+        "disease_name": "Yellow / Stripe Rust",
+        "pathogen": "Puccinia striiformis (Fungus)",
+        "severity": "Critical",
+        "cause": "Cool moist weather (10-15\u00c2\u00b0C) with persistent intermittent rains or heavy dew.",
+        "symptoms": [
+            "Bright yellow stripes of rust pustules arranged parallel along leaf veins.",
+            "Leaves turn chlorotic, dry prematurely, reducing grain size significantly.",
+            "Black teliospores appear on mature leaves late in season."
+        ],
+        "prevention": [
+            "Sow certified rust-resistant varieties (e.g., HD 2967, DBW 187).",
+            "Avoid late sowing of wheat."
+        ],
+        "treatment": [
+            "Organic: Bio-spray of Vermicompost wash (10%) + Bio-agent Bacillus subtilis.",
+            "Pesticide/Chemical: Spray Propiconazole 25% EC @ 1ml/L (Tilt) or Tebuconazole 25.9% EC @ 1.5ml/L."
+        ]
+    },
+    "Wheat_Powdery_Mildew": {
+        "crop": "Wheat",
+        "disease_name": "Powdery Mildew",
+        "pathogen": "Blumeria graminis (Fungus)",
+        "severity": "Moderate to High",
+        "cause": "High humidity (80-100%) combined with moderate temperatures (15-22\u00c2\u00b0C) and dense foliage.",
+        "symptoms": [
+            "White flour-like powdery patches on upper leaf surfaces and leaf sheaths.",
+            "Patches turn dull gray/brown with tiny black fruiting bodies late in season.",
+            "Stunted tillering and reduced seed head formation."
+        ],
+        "prevention": [
+            "Use balanced seed rate (100 kg/ha) to prevent dense crop canopy.",
+            "Avoid excess nitrogen fertilizer."
+        ],
+        "treatment": [
+            "Organic: Spray 10% sour buttermilk/whey solution or Wettable Sulphur 80% WP @ 3g/L.",
+            "Pesticide/Chemical: Spray Triadimefon 25% WP @ 1g/L or Azoxystrobin 23% SC @ 1ml/L."
+        ]
+    },
+    "Maize_Common_Rust": {
+        "crop": "Maize",
+        "disease_name": "Common Rust",
+        "pathogen": "Puccinia sorghi (Fungus)",
+        "severity": "Moderate",
+        "cause": "Cool temperatures (16-25\u00c2\u00b0C) with high relative humidity and wind-blown fungal spores.",
+        "symptoms": [
+            "Oval cinnamon-brown pustules scattered across both leaf surfaces.",
+            "Pustules rupture releasing powdery rust spores.",
+            "Premature leaf senescence in heavy infestations."
+        ],
+        "prevention": [
+            "Plant early-maturing hybrid corn varieties.",
+            "Rotate corn with non-graminaceous leguminous crops."
+        ],
+        "treatment": [
+            "Organic: Neem oil spray 5000 ppm @ 3ml/L water.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP @ 2g/L or Azoxystrobin @ 1ml/L."
+        ]
+    },
+    "Maize_Turcicum_Leaf_Blight": {
+        "crop": "Maize",
+        "disease_name": "Turcicum Leaf Blight",
+        "pathogen": "Exserohilum turcicum (Fungus)",
+        "severity": "High",
+        "cause": "Moderate temperatures (20-28\u00c2\u00b0C) accompanied by heavy dew and overcast weather.",
+        "symptoms": [
+            "Long elliptical grayish-green or tan lesions (up to 15cm long) on leaves.",
+            "Dark olive-green fungal sporulation visible inside lesions during moist periods.",
+            "Blistering and complete burning of leaf canopy."
+        ],
+        "prevention": [
+            "Deep plow crop residue immediately after harvest.",
+            "Use resistant hybrid varieties."
+        ],
+        "treatment": [
+            "Organic: Spray Pseudomonas fluorescens @ 10g/L water.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP @ 2.5g/L or Propiconazole 25% EC @ 1ml/L."
+        ]
+    },
+    "Tomato_Early_Blight": {
+        "crop": "Tomato",
+        "disease_name": "Early Blight",
+        "pathogen": "Alternaria solani (Fungus)",
+        "severity": "Moderate to High",
+        "cause": "Warm temperatures (24-29\u00c2\u00b0C) with high humidity, heavy rainfall, or overhead irrigation.",
+        "symptoms": [
+            "Dark brown to black spots with distinct concentric rings (target-like pattern) on older leaves.",
+            "Yellow halos surrounding leaf lesions leading to premature defoliation.",
+            "Sunken, leathery dark lesions on stems and fruit stem end."
+        ],
+        "prevention": [
+            "Rotate crops with non-solanaceous crops (e.g., corn, beans) on a 2-3 year cycle.",
+            "Use drip irrigation instead of overhead sprayers to keep leaves dry.",
+            "Apply organic straw mulch around plant bases."
+        ],
+        "treatment": [
+            "Organic: Apply Copper Hydroxide spray @ 2g/L or Bio-fungicide containing Bacillus subtilis.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP @ 2g/L or Chlorothalonil 75% WP @ 2g/L water."
+        ]
+    },
+    "Tomato_Late_Blight": {
+        "crop": "Tomato",
+        "disease_name": "Late Blight",
+        "pathogen": "Phytophthora infestans (Oomycete)",
+        "severity": "Critical",
+        "cause": "Cool, moist, fog-prone or rainy conditions (15-20\u00c2\u00b0C with humidity >90%).",
+        "symptoms": [
+            "Large, dark brown water-soaked lesions expanding rapidly on leaf tips and margins.",
+            "White cottony growth on the undersides of leaves under humid conditions.",
+            "Dark greasy lesions on stems and firm brown rot on fruit."
+        ],
+        "prevention": [
+            "Plant certified disease-resistant tomato varieties.",
+            "Space plants adequately (60cm x 45cm) for ventilation.",
+            "Avoid planting tomatoes near potatoes."
+        ],
+        "treatment": [
+            "Organic: Remove and bury severely infected plants immediately.",
+            "Pesticide/Chemical: Spray Metalaxyl 8% + Mancozeb 64% WP (Ridomil Gold) @ 2g/L or Dimethomorph 50% WP @ 1g/L water."
+        ]
+    },
+    "Tomato_Leaf_Curl": {
+        "crop": "Tomato",
+        "disease_name": "Tomato Yellow Leaf Curl Virus",
+        "pathogen": "Begomovirus (transmitted by Whitefly)",
+        "severity": "Critical",
+        "cause": "Transmitted by Bemisia tabaci (Whitefly) during warm dry spells.",
+        "symptoms": [
+            "Upward curling, puckering, and severe stunting of leaf blades.",
+            "Yellowing along leaf margins and bushy stunted plant growth.",
+            "Flower abortion and failure to set fruit."
+        ],
+        "prevention": [
+            "Install 40-mesh insect-proof net in nurseries.",
+            "Set up Yellow Sticky Traps @ 20 traps/acre."
+        ],
+        "treatment": [
+            "Organic: Spray Neem oil 10000 ppm @ 3ml/L or NSKE 5% solution.",
+            "Pesticide/Chemical: Control vector with Imidacloprid 17.8% SL @ 0.5ml/L or Thiamethoxam 25% WG @ 0.3g/L water."
+        ]
+    },
+    "Potato_Late_Blight": {
+        "crop": "Potato",
+        "disease_name": "Potato Late Blight",
+        "pathogen": "Phytophthora infestans (Oomycete)",
+        "severity": "Critical",
+        "cause": "Cool, wet weather (15-20\u00c2\u00b0C with >90% humidity).",
+        "symptoms": [
+            "Water-soaked dark green/brown leaf spots turning leaves brittle.",
+            "Foul decay odor throughout the field canopy.",
+            "Reddish-brown dry rot extending into tuber flesh."
+        ],
+        "prevention": [
+            "Hill soil up around plant bases to protect underground tubers from falling spores.",
+            "Destroy volunteer potato plants and nightshade weeds near field."
+        ],
+        "treatment": [
+            "Organic: Preventive Copper Hydroxide sprays before humid weather.",
+            "Pesticide/Chemical: Spray Cymoxanil 8% + Mancozeb 64% WP @ 2g/L or Fenamidone + Mancozeb."
+        ]
+    },
+    "Potato_Blackleg": {
+        "crop": "Potato",
+        "disease_name": "Blackleg & Soft Rot",
+        "pathogen": "Pectobacterium carotovorum (Bacterium)",
+        "severity": "High",
+        "cause": "Infected seed tubers and waterlogged poorly-drained soil.",
+        "symptoms": [
+            "Inky-black slimy decay of the lower stem starting from seed piece.",
+            "Yellowing, stunting, and wilting of canopy.",
+            "Soft smelly rot inside harvested potato tubers."
+        ],
+        "prevention": [
+            "Use certified disease-free seed tubers.",
+            "Avoid planting in cold wet waterlogged soils."
+        ],
+        "treatment": [
+            "Organic: Dip cut seed tubers in Trichoderma harzianum slurry.",
+            "Pesticide/Chemical: Streptocycline 6g per 50L water + Copper Oxychloride 50% WP @ 2.5g/L."
+        ]
+    },
+    "Onion_Purple_Blotch": {
+        "crop": "Onion",
+        "disease_name": "Purple Blotch",
+        "pathogen": "Alternaria porri (Fungus)",
+        "severity": "High",
+        "cause": "Warm humid conditions (25-30\u00c2\u00b0C) with frequent dew drops.",
+        "symptoms": [
+            "Small water-soaked sunken spots on leaves developing deep purple centers.",
+            "Yellow zones extending above and below purple lesions.",
+            "Leaves collapse, leading to bulb size reduction."
+        ],
+        "prevention": [
+            "Maintain crop rotation of 3 years.",
+            "Treat seeds with Thiram or Carbendazim @ 2g/kg."
+        ],
+        "treatment": [
+            "Organic: Bio-spray of Trichoderma viride @ 5g/L + Neem formulation.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP @ 2.5g/L or Tebuconazole 25.9% EC @ 1ml/L."
+        ]
+    },
+    "Pepper_Bacterial_Spot": {
+        "crop": "Bell Pepper / Chilli",
+        "disease_name": "Bacterial Spot",
+        "pathogen": "Xanthomonas euvesicatoria (Bacterium)",
+        "severity": "High",
+        "cause": "Warm rainy weather (24-30\u00c2\u00b0C) with water splashing.",
+        "symptoms": [
+            "Small water-soaked dark spots on leaves turning brown with chlorotic borders.",
+            "Severe defoliation exposing peppers to sunscald.",
+            "Raised rough scab-like spots on green fruit."
+        ],
+        "prevention": [
+            "Use certified disease-free seed stock.",
+            "Avoid overhead irrigation."
+        ],
+        "treatment": [
+            "Organic: Fixed copper sprays combined with bio-bactericides.",
+            "Pesticide/Chemical: Copper Oxychloride 50% WP @ 2.5g/L + Streptocycline @ 0.1g/L water."
+        ]
+    },
+    "Cotton_Leaf_Curl": {
+        "crop": "Cotton",
+        "disease_name": "Cotton Leaf Curl Virus",
+        "pathogen": "Begomovirus (Whitefly-borne)",
+        "severity": "Critical",
+        "cause": "Transmitted by Whiteflies (Bemisia tabaci) in warm humid climates.",
+        "symptoms": [
+            "Upward or downward curling of leaf margins.",
+            "Thickening of leaf veins and cup-like enations on leaf underside.",
+            "Severe plant stunting and drastic boll formation reduction."
+        ],
+        "prevention": [
+            "Grow resistant Bt-Cotton hybrids.",
+            "Eradicate weed hosts like Abutilon and Xanthium around field."
+        ],
+        "treatment": [
+            "Organic: Spray Neem Oil 10000 ppm @ 3ml/L water.",
+            "Pesticide/Chemical: Spray Diafenthiuron 50% WP @ 1g/L or Spirotetramat 15.31% OD @ 1ml/L."
+        ]
+    },
+    "Banana_Sigatoka": {
+        "crop": "Banana",
+        "disease_name": "Black Sigatoka",
+        "pathogen": "Mycosphaerella fijiensis (Fungus)",
+        "severity": "Critical",
+        "cause": "High rain, high humidity (>80%) and temperatures around 27\u00c2\u00b0C.",
+        "symptoms": [
+            "Reddish-brown narrow specks parallel to leaf veins.",
+            "Specks enlarge into dark brown/black streaks with gray centers.",
+            "Leaves collapse, leading to undersized unripened fruit bunches."
+        ],
+        "prevention": [
+            "Ensure good field drainage and prune overcrowded suckers.",
+            "Remove heavily infected lower leaves."
+        ],
+        "treatment": [
+            "Organic: Mineral oil spray @ 1% mixed with copper fungicide.",
+            "Pesticide/Chemical: Propiconazole 25% EC @ 1ml/L or Carbendazim 50% WP @ 1g/L water."
+        ]
+    },
+    "Apple_Scab": {
+        "crop": "Apple",
+        "disease_name": "Apple Scab",
+        "pathogen": "Venturia inaequalis (Fungus)",
+        "severity": "High",
+        "cause": "Cool wet spring weather with prolonged leaf wetness.",
+        "symptoms": [
+            "Olive-green velvety spots on young leaves turning dark brown.",
+            "Deformed, cracked fruit with corky brown scabby patches.",
+            "Premature leaf drop in mid-summer."
+        ],
+        "prevention": [
+            "Prune orchard trees to open canopy to air and sun.",
+            "Rake and destroy fallen leaves in autumn."
+        ],
+        "treatment": [
+            "Organic: Apply Liquid Lime Sulfur or Potassium Bicarbonate before rain events.",
+            "Pesticide/Chemical: Captan 50% WP @ 2.5g/L or Myclobutanil 10% WP @ 0.4g/L."
+        ]
+    },
+    "Citrus_Canker": {
+        "crop": "Citrus (Lemon/Orange)",
+        "disease_name": "Citrus Canker",
+        "pathogen": "Xanthomonas citri (Bacterium)",
+        "severity": "High",
+        "cause": "Wind-driven rain splashing bacteria onto young flush tissue.",
+        "symptoms": [
+            "Raised corky brown crater-like spots on leaves, stems, and fruits.",
+            "Yellow halo surrounding leaf lesions.",
+            "Premature fruit drop and twig dieback."
+        ],
+        "prevention": [
+            "Plant windbreaks around citrus orchards.",
+            "Prune infected twigs during dry winter season."
+        ],
+        "treatment": [
+            "Organic: Spray Copper Hydroxide 77% WP @ 2g/L.",
+            "Pesticide/Chemical: Copper Oxychloride 50% WP @ 3g/L + Streptocycline 6g per 50L water."
+        ]
+    },
+    "Sugarcane_Red_Rot": {
+        "crop": "Sugarcane",
+        "disease_name": "Red Rot",
+        "pathogen": "Colletotrichum falcatum (Fungus)",
+        "severity": "Critical",
+        "cause": "High waterlogging, infected seed setts, warm humid monsoon conditions.",
+        "symptoms": [
+            "Third or fourth leaf from top shows yellowing and drying.",
+            "Stalk splits open showing reddened internal tissues with white transverse bands.",
+            "Alcoholic foul odor from affected canes."
+        ],
+        "prevention": [
+            "Select disease-free seed setts from healthy seed nurseries.",
+            "Treat setts with hot water (52\u00c2\u00b0C for 30 min) or Carbendazim."
+        ],
+        "treatment": [
+            "Organic: Soil application of Trichoderma viride @ 5kg/ha.",
+            "Pesticide/Chemical: Sett treatment with Carbendazim 50% WP @ 2g/L before planting."
+        ]
+    },
+    "Rice_Blast": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Paddy Leaf Blast",
+        "pathogen": "Magnaporthe oryzae (Fungus)",
+        "severity": "High to Critical",
+        "cause": "High relative humidity (>90%), dew, and cool night temperatures (20-25\u00b0C) with excessive nitrogen fertilization.",
+        "symptoms": [
+            "Eye-shaped or spindle-shaped lesions with reddish-brown borders and gray centers on leaf blades.",
+            "Lesions enlarge and coalesce, causing entire leaves to dry up and die.",
+            "Neck rot at node bases leading to empty white heads (blank grains)."
+        ],
+        "prevention": [
+            "Avoid excessive nitrogenous fertilizer application; split N doses.",
+            "Treat seeds with Tricyclazole 75% WP @ 2g/kg seed before sowing.",
+            "Maintain 5cm water level in field during vegetative stage."
+        ],
+        "treatment": [
+            "Organic: Spray 5% Neem oil emulsion or Pseudomonas fluorescens @ 10g/L.",
+            "Pesticide/Chemical: Spray Tricyclazole 75% WP @ 0.6g/L water (Beam) or Isoprothiolane 40% EC @ 1.5ml/L."
+        ]
+    },
+    "Rice_Brown_Spot": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Brown Spot (Rice Leaf)",
+        "pathogen": "Bipolaris oryzae / Helminthosporium oryzae (Fungus)",
+        "severity": "Moderate to High",
+        "cause": "Nutrient deficient poor soils (low Potassium & Zinc) combined with relative humidity >85% and warm temperatures (25-30\u00b0C).",
+        "symptoms": [
+            "Small oval to sesame-seed shaped brown spots on leaves with yellow chlorotic halos.",
+            "Lesions develop dark brown borders and grayish-white centers as they mature.",
+            "In severe cases, leaves wither and turn reddish-brown prematurely."
+        ],
+        "prevention": [
+            "Apply balanced Potash (MOP @ 25kg/acre) and Zinc Sulphate (10kg/acre) basal dressing.",
+            "Use certified clean disease-free seed; treat seeds with Thiram + Carbendazim @ 2g/kg."
+        ],
+        "treatment": [
+            "Organic: Spray Cow Dung Slurry 10% or Neem Seed Kernel Extract (NSKE 5%) twice at 10-day intervals.",
+            "Pesticide/Chemical: Spray Mancozeb 75% WP + Carbendazim 12% @ 2g/L water or Propiconazole 25% EC (Tilt) @ 1ml/L."
+        ]
+    },
+    "Rice_Bacterial_Blight": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Bacterial Leaf Blight",
+        "pathogen": "Xanthomonas oryzae pv. oryzae (Bacteria)",
+        "severity": "Critical",
+        "cause": "High humidity (85-100%) and rain storms combined with temperatures of 25-30\u00b0C.",
+        "symptoms": [
+            "Water-soaked translucent stripes starting from leaf tips and margins.",
+            "Stripes enlarge, turning wavy yellow to straw-colored withered margins.",
+            "Milky bacterial ooze droplets on young leaves in early morning."
+        ],
+        "prevention": [
+            "Grow resistant varieties (e.g. Improved Samba Mahsuri).",
+            "Avoid clip-topping seedling leaves at transplanting."
+        ],
+        "treatment": [
+            "Organic: Spray Fresh Cow Dung Slurry 20% + Neem Cake 5% extract.",
+            "Pesticide/Chemical: Spray Streptocycline 6g + Copper Oxychloride 50% WP @ 500g in 200L water per acre."
+        ]
+    },
+    "Rice_Healthy": {
+        "crop": "Paddy (Rice)",
+        "disease_name": "Healthy Rice Leaf",
+        "pathogen": "None (Healthy)",
+        "severity": "None",
+        "cause": "Balanced irrigation, optimal spacing, and proper micro-nutrient balance.",
+        "symptoms": [
+            "Lush green leaves without spots, lesions, or tip drying."
+        ],
+        "prevention": [
+            "Regular field scouting and balanced NPK fertilizer application."
+        ],
+        "treatment": [
+            "No treatment required."
+        ]
+    }
+}

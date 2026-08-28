@@ -1,0 +1,408 @@
+{
+    "Tomato_Early_Blight": {
+        "disease_info": {
+            "cause": "Fungal (Alternaria solani)",
+            "symptoms": "Dark concentric ring spots on older leaves, yellow chlorotic halo around lesions",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Potassium & Nitrogen imbalance increases early blight susceptibility",
+            "product": "Muriate of Potash (MOP) + Zinc Sulphate",
+            "dosage_per_acre": "20 kg MOP + 10 kg Zinc",
+            "application_method": "Soil basal application, split into 2 doses 15 days apart",
+            "cost_estimate_inr": "650-800 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Neem oil spray (1500 ppm) + Trichoderma viride",
+                "dosage": "3-5 ml per liter of water (450-750 ml per acre in 150L water)",
+                "application": "Foliar spray every 7 days in early morning or evening",
+                "cost_estimate_inr_per_acre": "250-350",
+                "safety_notes": "Safe for beneficial insects and pollinators. No re-entry restriction."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Mancozeb 75% WP",
+                "dosage": "2.5 g per liter of water (375 g per acre in 150L water)",
+                "application": "Foliar spray every 10-14 days, max 4 applications per season",
+                "cost_estimate_inr_per_acre": "450-600",
+                "safety_notes": "Wear gloves and face mask during mixing. Pre-Harvest Interval (PHI): 5 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
+                "dosage": "1 ml per liter of water (150 ml per acre in 150L water)",
+                "application": "Foliar spray every 7 days until symptoms subside",
+                "cost_estimate_inr_per_acre": "850-1100",
+                "safety_notes": "Systemic fungicide. Wear full protective suit & goggles. PHI: 3 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 400,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 800,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1500,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Tomato_Late_Blight": {
+        "disease_info": {
+            "cause": "Oomycete (Phytophthora infestans)",
+            "symptoms": "Water-soaked dark lesions on leaves and stems, white fungal growth on undersides in high humidity",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Excessive Nitrogen worsens canopy density; Potassium strengthens cell walls against Phytophthora",
+            "product": "Sulphate of Potash (SOP 0-0-50)",
+            "dosage_per_acre": "15-20 kg",
+            "application_method": "Foliar spray or fertigation split dose",
+            "cost_estimate_inr": "750-900 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Copper Hydroxide 77% WP (Bio-Approved)",
+                "dosage": "2 g per liter of water (300 g per acre in 150L water)",
+                "application": "Foliar spray every 5-7 days before rainfall",
+                "cost_estimate_inr_per_acre": "300-450",
+                "safety_notes": "Avoid spraying in high sunlight; mild skin irritant."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Cymoxanil 8% + Mancozeb 64% WP",
+                "dosage": "3 g per liter of water (450 g per acre in 150L water)",
+                "application": "Curative spray within 48 hours of lesion appearance",
+                "cost_estimate_inr_per_acre": "650-800",
+                "safety_notes": "Wear respirator mask and rubber boots. PHI: 7 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Dimethomorph 50% WP + Metalaxyl-M",
+                "dosage": "1.5 g per liter of water (225 g per acre in 150L water)",
+                "application": "Foliar spray twice at 7-day intervals",
+                "cost_estimate_inr_per_acre": "1100-1400",
+                "safety_notes": "Restricted chemical. Full PPE required. Re-entry after 24 hours."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 500,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 900,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1600,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Potato_Early_Blight": {
+        "disease_info": {
+            "cause": "Fungal (Alternaria solani / Alternaria alternata)",
+            "symptoms": "Concentric target ring spots on mature lower potato foliage",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Magnesium and Zinc deficiency increases leaf senescent susceptibility",
+            "product": "Magnesium Sulphate + Zinc EDTA",
+            "dosage_per_acre": "10 kg Magnesium + 500 g Zinc EDTA",
+            "application_method": "Soil application during earthing up",
+            "cost_estimate_inr": "500-650 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Bacillus subtilis bio-fungicide + Neem Cake",
+                "dosage": "5 ml per liter of water (750 ml per acre in 150L water)",
+                "application": "Foliar spray every 7 days",
+                "cost_estimate_inr_per_acre": "250-380",
+                "safety_notes": "100% biological. Safe for soil microorganisms."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Chlorothalonil 75% WP",
+                "dosage": "2 g per liter of water (300 g per acre in 150L water)",
+                "application": "Spray at first sign of target spots, repeat in 10 days",
+                "cost_estimate_inr_per_acre": "500-650",
+                "safety_notes": "Eye irritant; wear protective eye goggles. PHI: 14 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Pyraclostrobin 20% WG",
+                "dosage": "1 g per liter of water (150 g per acre in 150L water)",
+                "application": "Systemic foliar application at 7-day intervals",
+                "cost_estimate_inr_per_acre": "950-1200",
+                "safety_notes": "Toxic to aquatic life; keep away from farm ponds. PHI: 7 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 450,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 750,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1300,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Potato_Late_Blight": {
+        "disease_info": {
+            "cause": "Oomycete (Phytophthora infestans)",
+            "symptoms": "Rapid blighting of leaves, water-soaked purplish black spots, stem collapse",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Potash deficiency weakens tuber skin resistance against rot spores",
+            "product": "Muriate of Potash (MOP)",
+            "dosage_per_acre": "25 kg",
+            "application_method": "Soil application during basal dressing",
+            "cost_estimate_inr": "700-850 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Pseudomonas fluorescens 1.15% WP",
+                "dosage": "10 g per liter of water (1.5 kg per acre in 150L water)",
+                "application": "Foliar drenching every 7 days",
+                "cost_estimate_inr_per_acre": "280-400",
+                "safety_notes": "Biological antagonist. No chemical toxicity."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Metalaxyl 8% + Mancozeb 64% WP",
+                "dosage": "2.5 g per liter of water (375 g per acre in 150L water)",
+                "application": "Foliar spray at 10-day intervals",
+                "cost_estimate_inr_per_acre": "600-750",
+                "safety_notes": "Wear mask and gloves. Avoid spraying under windy conditions. PHI: 10 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Fluopicolide 4.44% + Propamocarb Hydrochloride 66.25% SC",
+                "dosage": "2 ml per liter of water (300 ml per acre in 150L water)",
+                "application": "Emergency translaminar foliar spray",
+                "cost_estimate_inr_per_acre": "1200-1500",
+                "safety_notes": "Advanced multi-site fungicide. PPE mandatory. PHI: 7 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 450,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 800,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1600,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Corn_Common_Rust": {
+        "disease_info": {
+            "cause": "Fungal (Puccinia sorghi)",
+            "symptoms": "Golden-brown to cinnamon pustules on both upper and lower leaf surfaces of maize",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Zinc deficiency stunts canopy vigor and rust defense mechanisms",
+            "product": "Zinc Sulphate (21% Zn)",
+            "dosage_per_acre": "10 kg",
+            "application_method": "Basal soil application or foliar spray at 0.5%",
+            "cost_estimate_inr": "400-550 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Neem Oil 10,000 ppm + Sulfur 80% WDG (Organic)",
+                "dosage": "3 g per liter of water (450 g per acre in 150L water)",
+                "application": "Foliar spray at early pustule stage",
+                "cost_estimate_inr_per_acre": "220-350",
+                "safety_notes": "Do not spray when temperature exceeds 32\u00c2\u00b0C."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Mancozeb 75% WP",
+                "dosage": "2.5 g per liter of water (375 g per acre in 150L water)",
+                "application": "Foliar spray at 14-day intervals",
+                "cost_estimate_inr_per_acre": "420-550",
+                "safety_notes": "Wear face mask. PHI: 14 days before harvest."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Tebuconazole 25.9% EC",
+                "dosage": "1 ml per liter of water (150 ml per acre in 150L water)",
+                "application": "Systemic triazole spray at tasseling stage",
+                "cost_estimate_inr_per_acre": "750-950",
+                "safety_notes": "Strong triazole. Full protective equipment required. PHI: 21 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 380,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 650,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1100,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Rice_Blast": {
+        "disease_info": {
+            "cause": "Fungal (Magnaporthe oryzae)",
+            "symptoms": "Spindle-shaped lesions with reddish-brown margins and gray centers on paddy leaves & neck node",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Excessive Nitrogen fertilizer creates tender tissue susceptible to blast fungus invasion",
+            "product": "Potassium Chloride (MOP) + Silica Solubilizer",
+            "dosage_per_acre": "20 kg MOP + 5 kg Bio-Silica",
+            "application_method": "Top dressing in two split doses during tillering",
+            "cost_estimate_inr": "600-750 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Pseudomonas fluorescens 1% WP (KVK Recommended)",
+                "dosage": "10 g per liter of water (1.5 kg per acre in 150L water)",
+                "application": "Foliar spray at nursery and tillering stage",
+                "cost_estimate_inr_per_acre": "220-320",
+                "safety_notes": "Bio-agent. Completely eco-friendly and safe for fish culture in paddy fields."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Tricyclazole 75% WP (Beam)",
+                "dosage": "0.6 g per liter of water (90 g per acre in 150L water)",
+                "application": "Foliar spray at initial spindle lesion detection",
+                "cost_estimate_inr_per_acre": "480-620",
+                "safety_notes": "Standard systemic blasticide. Wear gloves and mask. PHI: 30 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Isoprothiolane 40% EC + Kasugamycin 3% L",
+                "dosage": "1.5 ml per liter of water (225 ml per acre in 150L water)",
+                "application": "Foliar spray during neck blast emergency",
+                "cost_estimate_inr_per_acre": "850-1150",
+                "safety_notes": "High potency curative combination. Full PPE mandatory. PHI: 21 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 350,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 700,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1300,
+                "recommended_option": "severe_case"
+            }
+        }
+    },
+    "Rice_Brown_Spot": {
+        "disease_info": {
+            "cause": "Fungal (Bipolaris oryzae / Helminthosporium oryzae)",
+            "symptoms": "Small oval brown spots on paddy leaves and glumes, indicating nutrient-deficient soil",
+            "severity_levels": [
+                "mild",
+                "moderate",
+                "severe"
+            ]
+        },
+        "fertilizer_recommendation": {
+            "reason": "Brown spot is strongly associated with Potash, Zinc, and Manganese deficient poor soils",
+            "product": "MOP + Zinc Sulphate + Farmyard Manure",
+            "dosage_per_acre": "25 kg MOP + 10 kg Zinc",
+            "application_method": "Basal application during land preparation",
+            "cost_estimate_inr": "650-800 per acre"
+        },
+        "treatment_options": [
+            {
+                "tier": "low_cost_organic",
+                "product": "Cow Dung Slurry 10% + Neem Seed Kernel Extract (NSKE 5%)",
+                "dosage": "50 ml per liter of water (7.5 Liters per acre in 150L water)",
+                "application": "Foliar spray twice at 10-day intervals",
+                "cost_estimate_inr_per_acre": "150-250",
+                "safety_notes": "Traditional organic spray. Safe for all beneficial predators."
+            },
+            {
+                "tier": "standard_chemical",
+                "product": "Mancozeb 75% WP + Carbendazim 12%",
+                "dosage": "2 g per liter of water (300 g per acre in 150L water)",
+                "application": "Foliar spray at early tillering and panicle initiation",
+                "cost_estimate_inr_per_acre": "400-520",
+                "safety_notes": "Dual action fungicide. Wear mask and boots. PHI: 15 days."
+            },
+            {
+                "tier": "severe_case",
+                "product": "Propiconazole 25% EC (Tilt)",
+                "dosage": "1 ml per liter of water (150 ml per acre in 150L water)",
+                "application": "Foliar spray at 14-day intervals",
+                "cost_estimate_inr_per_acre": "750-950",
+                "safety_notes": "Triazole systemic fungicide. Eye and skin protection required. PHI: 25 days."
+            }
+        ],
+        "budget_tiers": {
+            "low": {
+                "max_budget_inr_per_acre": 300,
+                "recommended_option": "low_cost_organic"
+            },
+            "medium": {
+                "max_budget_inr_per_acre": 600,
+                "recommended_option": "standard_chemical"
+            },
+            "high": {
+                "max_budget_inr_per_acre": 1100,
+                "recommended_option": "severe_case"
+            }
+        }
+    }
+}
