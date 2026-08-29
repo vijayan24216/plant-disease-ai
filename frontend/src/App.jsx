@@ -10,6 +10,7 @@ import BulletinTab from './components/BulletinTab';
 import AgriCalculatorTab from './components/AgriCalculatorTab';
 import AgriBotTab from './components/AgriBotTab';
 import AuthModal from './components/AuthModal';
+import LandingPage from './components/LandingPage';
 import { TRANSLATIONS } from './translations';
 
 const API_BASE_URL = 'http://localhost:8000';
@@ -31,15 +32,20 @@ export default function App() {
         }
     });
 
+    // View Mode: 'landing' | 'dashboard'
+    const [viewMode, setViewMode] = useState(() => (user ? 'dashboard' : 'landing'));
+
     const handleLoginSuccess = (userData) => {
         setUser(userData);
         localStorage.setItem('agripulse_user', JSON.stringify(userData));
+        setViewMode('dashboard');
     };
 
     const handleLogout = () => {
         if (window.confirm('Are you sure you want to log out of your AgriPulse account?')) {
             setUser(null);
             localStorage.removeItem('agripulse_user');
+            setViewMode('landing');
         }
     };
 
@@ -196,6 +202,27 @@ export default function App() {
             setLoading(false);
         }
     };
+
+    if (viewMode === 'landing') {
+        return (
+            <div className="agripulse-app-wrapper">
+                <LandingPage
+                    onGetStarted={() => setShowAuthModal(true)}
+                    onSeeDemo={() => setViewMode('dashboard')}
+                    onOpenLogin={() => setShowAuthModal(true)}
+                    t={t}
+                />
+
+                {/* Mobile OTP Authentication Modal */}
+                <AuthModal
+                    isOpen={showAuthModal}
+                    onClose={() => setShowAuthModal(false)}
+                    onLoginSuccess={handleLoginSuccess}
+                    t={t}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className="agripulse-app-wrapper">

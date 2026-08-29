@@ -2095,3 +2095,579 @@ body {
 .user-profile-pill:hover .logout-tooltip {
   display: inline;
 }
+
+/* ==========================================
+   LANDING PAGE & WELCOME HERO (Green AgriX Style)
+   ========================================== */
+.landing-page-wrapper {
+  background: linear-gradient(180deg, #edf7ed 0%, #f4fbf7 40%, #ffffff 100%);
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+.landing-nav-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.landing-logo-badge {
+  width: 38px;
+  height: 38px;
+  background: #1b5e20;
+  color: #ffffff;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(27, 94, 32, 0.25);
+}
+
+.landing-brand-name {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #004d40;
+  letter-spacing: -0.5px;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link-item {
+  color: #334155;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.nav-link-item:hover {
+  color: #1b5e20;
+}
+
+.nav-btn-login {
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
+.nav-btn-login:hover {
+  color: #1b5e20;
+}
+
+.nav-btn-getstarted {
+  background: #165a30;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 90, 48, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-btn-getstarted:hover {
+  background: #0f4021;
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.landing-hero-section {
+  max-width: 1200px;
+  margin: 20px auto 60px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-text-col {
+  padding-right: 20px;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #15803d;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.badge-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.hero-main-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0f172a;
+  margin: 0 0 18px 0;
+  letter-spacing: -1px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #165a30 0%, #22c55e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.btn-hero-primary {
+  background: #165a30;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(22, 90, 48, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+  background: #0f4021;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(22, 90, 48, 0.4);
+}
+
+.btn-hero-secondary {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #0f172a;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  border-color: #165a30;
+  color: #165a30;
+  background: #f8fafc;
+}
+
+.hero-trust-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-item strong {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #165a30;
+}
+
+.trust-item span {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 30px;
+  background: #cbd5e1;
+}
+
+/* Floating Visual Cards Column */
+.hero-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.preview-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather Preview Card */
+.weather-preview-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.preview-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.location-name {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.temp-display {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 4px 0 0 0;
+}
+
+.weather-icon-sun {
+  font-size: 2.5rem;
+  background: #fef3c7;
+  padding: 8px;
+  border-radius: 14px;
+}
+
+.weather-weekly-mini {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.weather-weekly-mini .day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.weather-weekly-mini .day-item.active {
+  color: #165a30;
+  font-weight: 900;
+}
+
+/* Health Gauge Card */
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.preview-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.health-score-gauge-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.radial-score-ring {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 5px solid #22c55e;
+  border-right-color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.score-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #15803d;
+  line-height: 1;
+}
+
+.score-denom {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.health-breakdown-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+
+.breakdown-item .lbl {
+  width: 80px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.breakdown-item .progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.breakdown-item .progress-bar .fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.breakdown-item .val {
+  width: 32px;
+  text-align: right;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Mandi Preview Card */
+.mandi-preview-card {
+  background: #ffffff;
+}
+
+.mandi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.live-dot-tag {
+  color: #ef4444;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.mandi-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crop-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crop-icon {
+  font-size: 1.5rem;
+}
+
+.crop-info strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #0f172a;
+}
+
+.mandi-loc {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.price-info {
+  text-align: right;
+}
+
+.price-info strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #165a30;
+}
+
+.trend-up {
+  font-size: 0.75rem;
+  color: #22c55e;
+  font-weight: 800;
+}
+
+/* Features Grid Section */
+.landing-features-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-subtitle {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #165a30;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 6px;
+}
+
+.features-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: #22c55e;
+}
+
+.feature-icon-box {
+  width: 52px;
+  height: 52px;
+  background: #f0fdf4;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.landing-bottom-cta-banner {
+  background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 48px 32px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.landing-bottom-cta-banner h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 8px 0;
+}
+
+.landing-bottom-cta-banner p {
+  color: #b2dfdb;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+/* Responsive Landing Page */
+@media (max-width: 900px) {
+  .landing-hero-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-main-title {
+    font-size: 2.4rem;
+  }
+
+  .landing-nav-links {
+    display: none;
+  }
+}
