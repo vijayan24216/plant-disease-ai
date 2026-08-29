@@ -154,8 +154,8 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                     }}>
                         <div className="card-3d-image-box">
                             <img
-                                src="https://images.unsplash.com/photo-1592417817098-8f3d6ef23a28?auto=format&fit=crop&w=600&q=80"
-                                alt="Crop Health Scan"
+                                src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80"
+                                alt="AI Crop Leaf Health Diagnostic Scan"
                             />
                             <span className="badge-3d-overlay">🌿 AI Diagnosis</span>
                         </div>
@@ -172,8 +172,8 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                     }}>
                         <div className="card-3d-image-box">
                             <img
-                                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80"
-                                alt="Smart Agriculture Field"
+                                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+                                alt="Smart Agriculture Field Weather Radar"
                             />
                             <span className="badge-3d-overlay">🌦️ Weather Radar</span>
                         </div>
@@ -190,7 +190,7 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                     }}>
                         <div className="card-3d-image-box">
                             <img
-                                src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                                src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=800&q=80"
                                 alt="Mandi Market Grain Harvest"
                             />
                             <span className="badge-3d-overlay">📊 Live Mandi</span>
@@ -203,7 +203,7 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                 </div>
             </section>
 
-            {/* Features Highlight Section */}
+            {/* Features Highlight Section with Rich Agricultural Imagery */}
             <section className="landing-features-section" id="features">
                 <div className="section-header text-center">
                     <span className="section-subtitle">SIMPLE & POWERFUL</span>
@@ -211,22 +211,46 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                 </div>
 
                 <div className="features-grid-3col">
-                    <div className="feature-card">
-                        <div className="feature-icon-box">🔬</div>
-                        <h3>Instant AI Disease Scan</h3>
-                        <p>Upload a leaf photo or snap with camera for 99.4% instant diagnosis & pesticide prescription.</p>
+                    <div className="feature-card feature-card-with-img">
+                        <div className="feature-img-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80"
+                                alt="Instant AI Disease Leaf Scanning"
+                            />
+                            <div className="feature-img-badge">🔬 Instant AI Scanner</div>
+                        </div>
+                        <div className="feature-card-body">
+                            <h3>Instant AI Disease Scan</h3>
+                            <p>Upload a leaf photo or snap with camera for 99.4% instant diagnosis & pesticide prescription.</p>
+                        </div>
                     </div>
 
-                    <div className="feature-card">
-                        <div className="feature-icon-box">📊</div>
-                        <h3>Live Mandi Market Rates</h3>
-                        <p>Real-time price updates across 150+ mandis with 7-day trend forecasts to maximize profits.</p>
+                    <div className="feature-card feature-card-with-img">
+                        <div className="feature-img-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80"
+                                alt="Indian APMC Mandi Grain Market"
+                            />
+                            <div className="feature-img-badge">📊 Mandi Rates</div>
+                        </div>
+                        <div className="feature-card-body">
+                            <h3>Live Mandi Market Rates</h3>
+                            <p>Real-time price updates across 150+ mandis with 7-day trend forecasts to maximize profits.</p>
+                        </div>
                     </div>
 
-                    <div className="feature-card">
-                        <div className="feature-icon-box">🧮</div>
-                        <h3>Agronomy Dosage Calculator</h3>
-                        <p>Calculate exact NPK fertilizer, Urea, and spray tank ratios tailored to your acre field size.</p>
+                    <div className="feature-card feature-card-with-img">
+                        <div className="feature-img-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80"
+                                alt="Agronomy NPK Fertilizer Spray"
+                            />
+                            <div className="feature-img-badge">🧮 Dosage Calculator</div>
+                        </div>
+                        <div className="feature-card-body">
+                            <h3>Agronomy Dosage Calculator</h3>
+                            <p>Calculate exact NPK fertilizer, Urea, and spray tank ratios tailored to your acre field size.</p>
+                        </div>
                     </div>
                 </div>
 
