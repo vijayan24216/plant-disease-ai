@@ -3,12 +3,12 @@ import { LANGUAGES } from '../translations';
 
 export default function Header({ currentLang, setLang, apiOnline, t }) {
     return (
-        <header className="agricentral-header">
+        <header className="agripulse-header">
             <div className="header-brand-row">
                 <div className="brand-logo-group">
-                    <div className="agri-logo-symbol">a</div>
+                    <div className="agri-logo-symbol">🌱</div>
                     <div>
-                        <h1 className="brand-title">AgriCentral <span className="ai-badge">AI</span></h1>
+                        <h1 className="brand-title">AgriPulse <span className="ai-badge">AI</span></h1>
                         <span className="brand-sub">Agricultural Intelligence Suite</span>
                     </div>
                 </div>

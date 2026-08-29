@@ -174,7 +174,7 @@ export default function App() {
     };
 
     return (
-        <div className="agricentral-app-wrapper">
+        <div className="agripulse-app-wrapper">
             {/* Hidden File Input for Global Gallery Trigger */}
             <input
                 type="file"
@@ -286,7 +286,7 @@ export default function App() {
                 </div>
             )}
 
-            {/* AgriCentral Style Bottom Navigation Bar */}
+            {/* AgriPulse Style Bottom Navigation Bar */}
             <Navigation
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}

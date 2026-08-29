@@ -11,7 +11,7 @@ export const LANGUAGES = [
 
 export const TRANSLATIONS = {
     en: {
-        appTitle: 'AgriCentral AI',
+        appTitle: 'AgriPulse AI',
         appSubtitle: 'Smart Farming, Disease Diagnosis, Live Mandi Rates & Agronomy Calculator',
 
         navHome: 'Home',
@@ -82,7 +82,7 @@ export const TRANSLATIONS = {
     },
 
     hi: {
-        appTitle: 'एग्रीसेंट्रल एआई',
+        appTitle: 'एग्रीपल्स एआई',
         appSubtitle: 'स्मार्ट खेती, फसल रोग निदान, लाइव मंडी भाव और कृषि कैलकुलेटर',
 
         navHome: 'होम',
@@ -146,7 +146,7 @@ export const TRANSLATIONS = {
     },
 
     ta: {
-        appTitle: 'அக்ரிசென்ட்ரல் AI',
+        appTitle: 'அக்ரிபல்ஸ் AI',
         appSubtitle: 'ஸ்மார்ட் விவசாயம், பயிர் நோய் கண்டறிதல் & மண்டி விலைகள்',
         navHome: 'முகப்பு',
         navCropCare: 'பயிர் பராமரிப்பு',
@@ -209,7 +209,7 @@ export const TRANSLATIONS = {
     },
 
     te: {
-        appTitle: 'అగ్రిసెంట్రల్ AI',
+        appTitle: 'అగ్రిపల్స్ AI',
         appSubtitle: 'స్మార్ట్ వ్యవసాయం, పంట రోగ నిర్ధారణ & మార్కెట్ ధరలు',
         navHome: 'హోమ్',
         navCropCare: 'పంట సంరక్షణ',
@@ -272,7 +272,7 @@ export const TRANSLATIONS = {
     },
 
     bn: {
-        appTitle: 'এগ্রিসেন্ট্রাল AI',
+        appTitle: 'এগ্রিপালস AI',
         appSubtitle: 'স্মার্ট কৃষি, ফসল রোগ নির্ণয় ও লাইভ মান্ডি দর',
         navHome: 'হোম',
         navCropCare: 'ফসল যত্ন',
@@ -335,7 +335,7 @@ export const TRANSLATIONS = {
     },
 
     mr: {
-        appTitle: 'अ‍ॅग्रीसेंट्रल AI',
+        appTitle: 'अ‍ॅग्रीपल्स AI',
         appSubtitle: 'स्मार्ट शेती, पीक रोग निदान आणि बाजार भाव',
         navHome: 'होम',
         navCropCare: 'पीक काळजी',
@@ -398,7 +398,7 @@ export const TRANSLATIONS = {
     },
 
     es: {
-        appTitle: 'AgriCentral AI',
+        appTitle: 'AgriPulse AI',
         appSubtitle: 'Agricultura Inteligente, Diagnóstico y Calculadora Agrícola',
         navHome: 'Inicio',
         navCropCare: 'Cuidado del Cultivo',
@@ -461,7 +461,7 @@ export const TRANSLATIONS = {
     },
 
     fr: {
-        appTitle: 'AgriCentral AI',
+        appTitle: 'AgriPulse AI',
         appSubtitle: 'Agriculture Intelligente, Diagnostic et Calculateur',
         navHome: 'Accueil',
         navCropCare: 'Soins des Cultures',

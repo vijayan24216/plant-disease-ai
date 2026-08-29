@@ -41,7 +41,7 @@ body {
 }
 
 /* RESPONSIVE APP WRAPPER: Mobile default (480px max-width), scales up seamlessly on Laptops (1200px max-width) */
-.agricentral-app-wrapper {
+.agripulse-app-wrapper {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
@@ -53,7 +53,7 @@ body {
 }
 
 /* Header */
-.agricentral-header {
+.agripulse-header {
   background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
   color: #ffffff;
   padding: 14px 18px;
@@ -1612,7 +1612,7 @@ body {
     /* Remove bottom bar padding on desktop */
   }
 
-  .agricentral-app-wrapper {
+  .agripulse-app-wrapper {
     max-width: 1200px;
     /* Expand container width for Laptops & Desktops */
   }
@@ -1622,7 +1622,7 @@ body {
   }
 
   /* Desktop Header Layout */
-  .agricentral-header {
+  .agripulse-header {
     padding: 16px 32px;
   }
 

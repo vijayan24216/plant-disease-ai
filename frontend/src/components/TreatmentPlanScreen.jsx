@@ -8,31 +8,15 @@ export default function TreatmentPlanScreen({
 }) {
     // Persistent Field Size (Load from localStorage if available, default to 1.0)
     const [fieldSizeAcres, setFieldSizeAcres] = useState(() => {
-        const saved = localStorage.getItem('agricentral_field_size');
+        const saved = localStorage.getItem('agripulse_field_size') || localStorage.getItem('agricentral_field_size');
         return saved ? parseFloat(saved) : 1.0;
     });
-
-    // Default Budget Level to "medium" (Sensible default for farmers)
-    const [budgetLevel, setBudgetLevel] = useState('medium'); // 'low' | 'medium' | 'high'
-
-    // Toggle between Organic & Chemical
-    const [farmingType, setFarmingType] = useState('no_preference'); // 'organic' | 'conventional' | 'no_preference'
-
-    // Result State
-    const [plan, setPlan] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    // Disease scan info passed from CTA button
-    const diseaseName = scanData?.disease_name || 'Tomato Early Blight';
-    const confidenceScore = scanData?.confidence_score || scanData?.confidence_percent || 88;
-    const cropType = scanData?.crop_type || scanData?.crop || 'Tomato';
 
     // Save field size to localStorage when updated
     const handleFieldSizeChange = (val) => {
         const acres = Math.max(0.1, parseFloat(val) || 1.0);
         setFieldSizeAcres(acres);
-        localStorage.setItem('agricentral_field_size', acres.toString());
+        localStorage.setItem('agripulse_field_size', acres.toString());
     };
 
     // Calculate treatment plan via API on changes
