@@ -670,11 +670,10 @@ def chat_agri_bot(query: BotQuery):
 
 def validate_is_leaf(img: Image.Image) -> tuple[bool, str]:
     """
-    Validates whether an image contains plant leaf/foliage characteristics or is a non-leaf photo (human face, selfie, car, building, etc.).
+    Validates whether an image contains plant leaf/foliage characteristics or is a non-leaf photo (human face, selfie, screenshot, car, building, etc.).
     Returns (is_leaf, reason).
     """
     try:
-        # Resize image to fast 100x100 thumbnail for instant analysis
         small_img = img.resize((100, 100)).convert("RGB")
         pixels = list(small_img.getdata())
         total_pixels = len(pixels)
@@ -683,10 +682,10 @@ def validate_is_leaf(img: Image.Image) -> tuple[bool, str]:
         skin_human_pixels = 0
         
         for r, g, b in pixels:
-            # Plant foliage: Green dominant or yellow-green/decay brown leaf spots
-            is_green_leaf = (g > r * 0.88 and g > b * 0.88 and g > 25)
-            is_yellow_brown_leaf = (r > 60 and g > 50 and b < r * 0.75 and g > b * 0.9)
-            is_chlorotic_leaf = (g > 80 and r > 80 and b < g * 0.85)
+            # Strict plant leaf vegetation signatures
+            is_green_leaf = (g > r + 12 and g > b + 12 and g > 35)
+            is_yellow_brown_leaf = (r > 70 and g > 55 and b < r * 0.68 and g > b + 15)
+            is_chlorotic_leaf = (g > 85 and r > 85 and b < g * 0.72)
             
             if is_green_leaf or is_yellow_brown_leaf or is_chlorotic_leaf:
                 leaf_foliage_pixels += 1
@@ -698,11 +697,11 @@ def validate_is_leaf(img: Image.Image) -> tuple[bool, str]:
         foliage_ratio = leaf_foliage_pixels / total_pixels
         skin_ratio = skin_human_pixels / total_pixels
         
-        if skin_ratio > 0.38 and foliage_ratio < 0.20:
+        if skin_ratio > 0.30 and foliage_ratio < 0.20:
             return False, "Human selfie / skin tone detected. Please upload a clear photo of an affected crop leaf."
         
-        if foliage_ratio < 0.08:
-            return False, "Non-plant object detected. No leaf foliage or chlorophyll detected in photo."
+        if foliage_ratio < 0.18:
+            return False, "Non-plant image detected. No plant leaf foliage found (e.g. computer screenshot, UI, face, car, or building)."
             
         return True, "Valid leaf image"
     except Exception:

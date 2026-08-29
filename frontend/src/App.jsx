@@ -252,10 +252,10 @@ export default function App() {
                             const g = data[i + 1];
                             const b = data[i + 2];
 
-                            // Green foliage / Chlorophyll / Leaf spot yellow-brown
-                            const isGreen = (g > r * 0.85 && g > b * 0.85 && g > 25);
-                            const isYellowBrown = (r > 60 && g > 50 && b < r * 0.75 && g > b * 0.9);
-                            const isChlorotic = (g > 80 && r > 80 && b < g * 0.85);
+                            // Strict Green foliage / Chlorophyll / Leaf spot yellow-brown
+                            const isGreen = (g > r + 12 && g > b + 12 && g > 35);
+                            const isYellowBrown = (r > 70 && g > 55 && b < r * 0.68 && g > b + 15);
+                            const isChlorotic = (g > 85 && r > 85 && b < g * 0.72);
 
                             if (isGreen || isYellowBrown || isChlorotic) {
                                 foliagePixels++;
@@ -270,10 +270,10 @@ export default function App() {
                         const foliageRatio = foliagePixels / total;
                         const skinRatio = skinPixels / total;
 
-                        if (skinRatio > 0.38 && foliageRatio < 0.20) {
-                            resolve({ isLeaf: false, message: 'Human face / selfie detected! Please upload a photo of a plant leaf.' });
-                        } else if (foliageRatio < 0.08) {
-                            resolve({ isLeaf: false, message: 'Non-plant image detected! No crop leaf foliage found in photo.' });
+                        if (skinRatio > 0.30 && foliageRatio < 0.20) {
+                            resolve({ isLeaf: false, message: 'Human selfie / skin tone detected! Please upload a photo of a crop leaf.' });
+                        } else if (foliageRatio < 0.18) {
+                            resolve({ isLeaf: false, message: 'Non-plant image detected! No crop leaf foliage found in photo (e.g. computer screenshot, UI, face, car, or building).' });
                         } else {
                             resolve({ isLeaf: true });
                         }
@@ -299,12 +299,13 @@ export default function App() {
 
         setLoading(true);
         setError(null);
-        setResult(null);
+        setResult(null); // CRITICAL: Explicitly clear any existing diagnostic report
 
         // Pre-validate leaf vs non-leaf photo
         const leafCheck = await validateLeafImage(fileObj);
         if (!leafCheck.isLeaf) {
             setLoading(false);
+            setResult(null); // Force clear result so report card is NOT rendered!
             setError(`🚫 Invalid Image: ${leafCheck.message}`);
             return;
         }
@@ -339,12 +340,20 @@ export default function App() {
             });
 
             const [data] = await Promise.all([fetchPromise, minDelayPromise]);
-            setResult(data);
+
+            // Check backend error status or is_leaf status
+            if (data && (data.is_leaf === false || data.error)) {
+                setResult(null);
+                setError(data.error || data.warning || '🚫 Invalid Image: Non-leaf photo detected.');
+            } else {
+                setResult(data);
+            }
         } catch (err) {
-            if (err.message && err.message.includes('Invalid Image')) {
+            setResult(null); // Clear result first!
+            if (err.message && (err.message.includes('Invalid Image') || err.message.includes('Non-plant') || err.message.includes('selfie') || err.message.includes('screenshot'))) {
                 setError(err.message);
             } else {
-                // Find matched fallback diagnosis or default to crop diagnosis
+                // Network/timeout error on a VALID leaf image: fallback
                 const key = Object.keys(FALLBACK_DIAGNOSES).find(k => cropName.toLowerCase().includes(k.toLowerCase())) || 'Tomato';
                 const fallback = FALLBACK_DIAGNOSES[key] || FALLBACK_DIAGNOSES['Tomato'];
                 setResult({
