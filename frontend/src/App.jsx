@@ -223,6 +223,72 @@ export default function App() {
         analyzeImage(file);
     };
 
+    // Client-side Leaf / Non-Leaf Image Guard
+    const validateLeafImage = (file) => {
+        return new Promise((resolve) => {
+            if (!file || !file.type.startsWith('image/')) {
+                resolve({ isLeaf: true });
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    try {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = 100;
+                        canvas.height = 100;
+                        ctx.drawImage(img, 0, 0, 100, 100);
+                        const imageData = ctx.getImageData(0, 0, 100, 100);
+                        const data = imageData.data;
+
+                        let foliagePixels = 0;
+                        let skinPixels = 0;
+                        const total = data.length / 4;
+
+                        for (let i = 0; i < data.length; i += 4) {
+                            const r = data[i];
+                            const g = data[i + 1];
+                            const b = data[i + 2];
+
+                            // Green foliage / Chlorophyll / Leaf spot yellow-brown
+                            const isGreen = (g > r * 0.85 && g > b * 0.85 && g > 25);
+                            const isYellowBrown = (r > 60 && g > 50 && b < r * 0.75 && g > b * 0.9);
+                            const isChlorotic = (g > 80 && r > 80 && b < g * 0.85);
+
+                            if (isGreen || isYellowBrown || isChlorotic) {
+                                foliagePixels++;
+                            }
+
+                            // Human skin tone heuristic
+                            if (r > 95 && g > 40 && b > 20 && r > g && r > b && Math.abs(r - g) > 12 && (r - b) > 15) {
+                                skinPixels++;
+                            }
+                        }
+
+                        const foliageRatio = foliagePixels / total;
+                        const skinRatio = skinPixels / total;
+
+                        if (skinRatio > 0.38 && foliageRatio < 0.20) {
+                            resolve({ isLeaf: false, message: 'Human face / selfie detected! Please upload a photo of a plant leaf.' });
+                        } else if (foliageRatio < 0.08) {
+                            resolve({ isLeaf: false, message: 'Non-plant image detected! No crop leaf foliage found in photo.' });
+                        } else {
+                            resolve({ isLeaf: true });
+                        }
+                    } catch (err) {
+                        resolve({ isLeaf: true });
+                    }
+                };
+                img.onerror = () => resolve({ isLeaf: true });
+                img.src = e.target.result;
+            };
+            reader.onerror = () => resolve({ isLeaf: true });
+            reader.readAsDataURL(file);
+        });
+    };
+
     // Prediction Analysis Call with 1.8s smooth scanning delay
     const analyzeImage = async (fileToAnalyze = null) => {
         const fileObj = fileToAnalyze || selectedFile;
@@ -234,6 +300,14 @@ export default function App() {
         setLoading(true);
         setError(null);
         setResult(null);
+
+        // Pre-validate leaf vs non-leaf photo
+        const leafCheck = await validateLeafImage(fileObj);
+        if (!leafCheck.isLeaf) {
+            setLoading(false);
+            setError(`🚫 Invalid Image: ${leafCheck.message}`);
+            return;
+        }
 
         const cropName = typeof selectedCrop === 'object' && selectedCrop !== null
             ? (selectedCrop.name || selectedCrop.id)
@@ -267,19 +341,23 @@ export default function App() {
             const [data] = await Promise.all([fetchPromise, minDelayPromise]);
             setResult(data);
         } catch (err) {
-            // Find matched fallback diagnosis or default to crop diagnosis
-            const key = Object.keys(FALLBACK_DIAGNOSES).find(k => cropName.toLowerCase().includes(k.toLowerCase())) || 'Tomato';
-            const fallback = FALLBACK_DIAGNOSES[key] || FALLBACK_DIAGNOSES['Tomato'];
-            setResult({
-                disease_name: `${cropName} Early Blight & Leaf Spot`,
-                confidence_percent: fallback.confidence_percent || 94,
-                severity: fallback.severity || 'Moderate',
-                pathogen: fallback.pathogen || 'Alternaria solani (Fungus)',
-                treatment: fallback.treatment,
-                symptoms: fallback.symptoms,
-                cause: fallback.cause,
-                prevention: fallback.prevention
-            });
+            if (err.message && err.message.includes('Invalid Image')) {
+                setError(err.message);
+            } else {
+                // Find matched fallback diagnosis or default to crop diagnosis
+                const key = Object.keys(FALLBACK_DIAGNOSES).find(k => cropName.toLowerCase().includes(k.toLowerCase())) || 'Tomato';
+                const fallback = FALLBACK_DIAGNOSES[key] || FALLBACK_DIAGNOSES['Tomato'];
+                setResult({
+                    disease_name: `${cropName} Early Blight & Leaf Spot`,
+                    confidence_percent: fallback.confidence_percent || 94,
+                    severity: fallback.severity || 'Moderate',
+                    pathogen: fallback.pathogen || 'Alternaria solani (Fungus)',
+                    treatment: fallback.treatment,
+                    symptoms: fallback.symptoms,
+                    cause: fallback.cause,
+                    prevention: fallback.prevention
+                });
+            }
         } finally {
             setLoading(false);
         }

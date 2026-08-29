@@ -253,8 +253,23 @@ export default function ScannerTab({
                 </button>
 
                 {error && (
-                    <div className="warning-banner error-banner" style={{ marginTop: 10 }}>
-                        ⚠️ {error}
+                    <div className="non-leaf-alert-card" style={{
+                        marginTop: 14,
+                        padding: '16px 20px',
+                        background: '#fef2f2',
+                        border: '1.5px solid #fca5a5',
+                        borderRadius: 16,
+                        color: '#991b1b'
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontWeight: 900, fontSize: '0.98rem', marginBottom: 4 }}>
+                            <span style={{ fontSize: '1.4rem' }}>⚠️</span> Invalid Image: Not a Crop Leaf
+                        </div>
+                        <p style={{ margin: 0, fontSize: '0.85rem', color: '#7f1d1d', lineHeight: 1.5 }}>
+                            {error.replace('🚫 Invalid Image:', '').trim()}
+                        </p>
+                        <span style={{ display: 'inline-block', marginTop: 8, fontSize: '0.78rem', fontWeight: 800, color: '#b91c1c' }}>
+                            💡 Tip: Please snap or upload a clear photo of an affected plant leaf (Tomato, Paddy, Potato, Cotton, etc.).
+                        </span>
                     </div>
                 )}
             </div>
