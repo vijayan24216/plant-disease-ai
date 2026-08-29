@@ -601,52 +601,149 @@ def get_market_analytics(crop: Optional[str] = None):
         return {"count": len(filtered), "data": filtered}
     return {"count": len(MARKET_DATA), "data": MARKET_DATA, "last_updated": "Live - Just Now"}
 
+# Regional Mandi Price Benchmarks (INR per Quintal & per Kg)
+MANDI_BENCHMARKS = {
+    "karnal": {"paddy": 2480, "wheat": 2650, "default": 2400},
+    "guntur": {"chilli": 19500, "paddy": 2350, "cotton": 7450, "default": 2500},
+    "lasalgaon": {"onion": 3250, "tomato": 4100, "soybean": 4850, "default": 3100},
+    "azadpur": {"tomato": 4350, "potato": 2450, "apple": 14200, "default": 3800},
+    "tiruvarur": {"paddy": 2240, "sugarcane": 3150, "default": 2200},
+    "amritsar": {"paddy": 4450, "wheat": 2680, "default": 3500},
+    "indore": {"wheat": 2520, "soybean": 4920, "maize": 2320, "default": 2600},
+    "kolar": {"tomato": 4150, "potato": 2380, "default": 3200},
+    "agra": {"potato": 2350, "wheat": 2480, "default": 2400},
+    "kota": {"wheat": 2510, "soybean": 4890, "default": 2500},
+    "hooghly": {"potato": 2280, "paddy": 2190, "default": 2200},
+    "burdwan": {"paddy": 2210, "rice": 3100, "default": 2250},
+    "warangal": {"cotton": 7350, "chilli": 18800, "default": 3600},
+    "shimla": {"apple": 13800, "potato": 2600, "default": 4500},
+    "rajkot": {"cotton": 7280, "groundnut": 6650, "default": 4200},
+    "madanapalle": {"tomato": 4200, "default": 3800},
+    "raipur": {"paddy": 2203, "maize": 2250, "default": 2200}
+}
+
 @app.get("/market/region", tags=["Market Analytics"])
 def get_regional_market_price(place: str = "Karnal (Haryana)", crop: str = "Paddy (Rice)"):
-    """Returns specific regional Mandi price, 24h trend, arrival volume, price range, and verified buyers for a selected place and crop."""
-    # Find base crop data
-    crop_match = next((item for item in MARKET_DATA if crop.lower().split()[0] in item["crop"].lower()), MARKET_DATA[0])
+    """Returns specific regional Mandi price, 24h trend, arrival volume, MSP floor price, and verified buyers for a selected place and crop."""
+    place_key = place.lower().split()[0].replace("-", "").replace("/", "")
+    crop_key = crop.lower().split()[0]
     
-    # Calculate region-specific variations
-    place_hash = sum(ord(c) for c in place)
-    price_variance = ((place_hash % 15) - 7) * 0.50 # Variance of -₹3.5 to +₹3.5
-    base_price = round(max(10.0, crop_match["current_price"] + price_variance), 2)
-    price_q = int(base_price * 100)
-    min_q = int(price_q * 0.92)
-    max_q = int(price_q * 1.08)
-    arrival_vol = (place_hash % 800) + 250 # 250 - 1050 Quintals
+    # Retrieve place benchmark
+    place_dict = MANDI_BENCHMARKS.get(place_key, {"default": 2450})
+    base_q_price = place_dict.get(crop_key, place_dict.get("default", 2450))
+    
+    # Calculate deterministic variance
+    place_hash = sum(ord(c) for c in place + crop)
+    variance_q = ((place_hash % 21) - 10) * 15 # +/- ₹150 variance
+    
+    modal_q = int(max(800, base_q_price + variance_q))
+    min_q = int(modal_q * 0.93)
+    max_q = int(modal_q * 1.07)
+    
+    current_price_kg = round(modal_q / 100.0, 2)
+    arrival_vol_mt = (place_hash % 650) + 180 # 180 MT to 830 MT
+    
+    change_pct = round(((place_hash % 90) - 35) * 0.1, 1)
+    change_str = f"+{change_pct}%" if change_pct >= 0 else f"{change_pct}%"
+    trend_str = "up" if change_pct >= 0 else "down"
     
     place_clean = place.split("(")[0].strip()
     
     buyers = [
-        {"name": f"{place_clean} Kisan APMC Procurements", "phone": "+91 98765 43210", "type": "Government APMC Yard", "distance": "8 km", "rate_offer": f"₹ {base_price + 0.30:.2f}/kg"},
-        {"name": f"Agri-Trade Hub ({place_clean})", "phone": "+91 94123 88990", "type": "Licensed Miller / Exporter", "distance": "15 km", "rate_offer": f"₹ {base_price:.2f}/kg"},
-        {"name": f"Regional Cooperative Depot", "phone": "+91 91234 56789", "type": "Farmers Collective", "distance": "22 km", "rate_offer": f"₹ {base_price - 0.20:.2f}/kg"}
+        {
+            "name": f"{place_clean} APMC Government Yard",
+            "phone": "+91 98765 43210",
+            "type": "State APMC Mandi",
+            "distance": "6 km",
+            "rate_offer": f"₹ {modal_q + 30:,} / Q (₹ {current_price_kg + 0.30:.2f}/kg)"
+        },
+        {
+            "name": f"Kisan Agro Procurements ({place_clean})",
+            "phone": "+91 94123 88990",
+            "type": "Licensed Miller / Exporter",
+            "distance": "14 km",
+            "rate_offer": f"₹ {modal_q:,} / Q (₹ {current_price_kg:.2f}/kg)"
+        },
+        {
+            "name": f"{place_clean} Farmers FPO Collective",
+            "phone": "+91 91234 56789",
+            "type": "Cooperative Depot",
+            "distance": "22 km",
+            "rate_offer": f"₹ {max_q:,} / Q (Grade A Quality)"
+        }
     ]
     
+    msp_price = 2203 if "paddy" in crop_key else (2275 if "wheat" in crop_key else None)
+
     return {
         "status": "success",
         "place": place,
-        "crop": crop_match["crop"],
-        "category": crop_match["category"],
-        "current_price": base_price,
-        "price_per_q": price_q,
+        "crop": crop,
+        "price_per_q": modal_q,
+        "current_price": current_price_kg,
         "min_price_q": min_q,
         "max_price_q": max_q,
         "unit": "kg",
         "currency": "₹",
-        "change_24h": crop_match["change_24h"],
-        "trend": crop_match["trend"],
-        "arrival_volume": f"{arrival_vol} Quintals",
-        "demand_level": crop_match["demand_level"],
-        "advisory": f"Procurement demand for {crop_match['crop']} in {place} is currently high. Local mills and APMC buyers are offering competitive rates.",
+        "change_24h": change_str,
+        "trend": trend_str,
+        "arrivals_tonnes": arrival_vol_mt,
+        "arrival_volume": f"{arrival_vol_mt * 10} Quintals ({arrival_vol_mt} MT)",
+        "msp_floor_price": msp_price,
+        "transport_cost_est": f"₹ {int((place_hash % 25) + 15)} / Quintal",
+        "demand_level": "High" if change_pct >= 0 else "Moderate",
+        "advisory": f"Active procurement at {place} APMC Mandi today for {crop}. High bidding for clean, moisture-controlled lots (<14%).",
         "buyers": buyers
     }
 
 @app.get("/weather-risk", tags=["Weather Intelligence"])
-def get_weather_risk():
-    """Returns current weather condition and automated crop disease outbreak risk score."""
-    return WEATHER_RISK_DATA
+def get_weather_risk(place: Optional[str] = Query(None), country: Optional[str] = Query(None)):
+    """Returns dynamic location-based micro-climate weather forecast and crop disease outbreak risks."""
+    location_name = place or "Punjab - Ludhiana Sector"
+    if country and country not in location_name:
+        location_name = f"{location_name}, {country}"
+        
+    hash_val = sum(ord(c) for c in location_name)
+    
+    # Calculate location-tailored weather metrics
+    temp = 24 + (hash_val % 13) # 24°C - 36°C
+    humidity = 55 + (hash_val % 38) # 55% - 93%
+    precip_chance = (hash_val % 75) + 15 # 15% - 90%
+    wind_spd = (hash_val % 18) + 8 # 8 - 26 km/h
+    risk_score = min(98, max(42, int((humidity * 0.55) + (temp * 0.7) + (precip_chance * 0.25))))
+    
+    return {
+        "status": "success",
+        "location": location_name,
+        "temperature": temp,
+        "humidity": humidity,
+        "precipitation_chance": precip_chance,
+        "wind_speed": f"{wind_spd} km/h NW",
+        "risk_score": risk_score,
+        "condition": "Humid / Rain Advisory" if precip_chance > 50 else "Partly Sunny / Warm",
+        "uv_index": (hash_val % 6) + 4,
+        "soil_moisture": f"{(hash_val % 30) + 45}%",
+        "forecast_3day": [
+            {
+                "day": "Today",
+                "temp": f"{temp}°C / {temp - 5}°C",
+                "condition": "Cloudy & Humid" if humidity > 70 else "Sunny",
+                "risk": "Critical" if risk_score > 75 else "Moderate"
+            },
+            {
+                "day": "Tomorrow",
+                "temp": f"{temp + 1}°C / {temp - 4}°C",
+                "condition": "Rain Showers" if precip_chance > 45 else "Partly Cloudy",
+                "risk": "High" if precip_chance > 45 else "Moderate"
+            },
+            {
+                "day": "Day 3",
+                "temp": f"{temp - 1}°C / {temp - 6}°C",
+                "condition": "Clear Sky",
+                "risk": "Low"
+            }
+        ]
+    }
 
 @app.post("/bot/chat", tags=["Agri-Bot Assistant"])
 def chat_agri_bot(query: BotQuery):

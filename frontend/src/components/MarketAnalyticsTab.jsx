@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || (
+    typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://localhost:8000'
+        : 'https://agribot-backend.onrender.com'
+);
+
 const COMMODITY_CROPS = [
     'Paddy (Rice)', 'Wheat', 'Tomato', 'Potato', 'Onion',
-    'Cotton', 'Maize (Corn)', 'Soybean', 'Sugarcane', 'Chilli (Red)'
+    'Cotton', 'Maize (Corn)', 'Soybean', 'Sugarcane', 'Chilli (Red)', 'Apple'
 ];
 
 const REGIONAL_PLACES = [
     'Karnal (Haryana)', 'Guntur (Andhra Pradesh)', 'Lasalgaon / Nashik (Maharashtra)',
-    'Azadpur APMC (Delhi)', 'Tiruvarur (Tamil Nadu)', 'Amritsar (Punjab)', 'Indore (Madhya Pradesh)'
+    'Azadpur APMC (Delhi)', 'Tiruvarur (Tamil Nadu)', 'Amritsar (Punjab)', 'Indore (Madhya Pradesh)',
+    'Kolar APMC (Karnataka)', 'Agra Mandi (Uttar Pradesh)', 'Kota APMC (Rajasthan)',
+    'Hooghly APMC (West Bengal)', 'Burdwan APMC (West Bengal)', 'Warangal APMC (Telangana)',
+    'Shimla APMC (Himachal Pradesh)', 'Rajkot APMC (Gujarat)', 'Madanapalle Market (Andhra Pradesh)',
+    'Raipur APMC (Chhattisgarh)'
 ];
 
 const INITIAL_MARKET_DATA = [
@@ -124,7 +134,7 @@ export default function MarketAnalyticsTab({ selectedCropFromAnalysis = '' }) {
         setLoadingRegional(true);
         setHasSearched(true);
         try {
-            const resp = await fetch(`/market/region?place=${encodeURIComponent(place)}&crop=${encodeURIComponent(crop)}`);
+            const resp = await fetch(`${API_BASE_URL}/market/region?place=${encodeURIComponent(place)}&crop=${encodeURIComponent(crop)}`);
             if (resp.ok) {
                 const data = await resp.json();
                 setRegionalData(data);
