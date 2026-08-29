@@ -43,7 +43,7 @@ export default function ScannerTab({
             setScanStageText('Analyzing leaf cellular structure...');
 
             const startTime = Date.now();
-            const totalDuration = 15000; // 15 seconds thorough scan animation
+            const totalDuration = 2200; // Fast & responsive 2.2s scan animation
 
             interval = setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -59,7 +59,7 @@ export default function ScannerTab({
                 } else {
                     setScanStageText('📋 Formulating pesticide & fertilizer prescription...');
                 }
-            }, 200);
+            }, 50);
         } else {
             setScanProgress(100);
             if (interval) clearInterval(interval);

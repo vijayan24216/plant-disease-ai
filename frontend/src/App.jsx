@@ -242,13 +242,19 @@ export default function App() {
             formData.append('crop', cropName);
         }
 
-        const minDelayPromise = new Promise((resolve) => setTimeout(resolve, 15000)); // 15s thorough scan timer
+        const minDelayPromise = new Promise((resolve) => setTimeout(resolve, 2200)); // Smooth 2.2s scan animation
 
         try {
+            // Fetch request with a 4-second timeout to ensure instant response on Render free tier
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 4000);
+
             const fetchPromise = fetch(`${API_BASE_URL}/predict?confidence_threshold=0.50`, {
                 method: 'POST',
                 body: formData,
+                signal: controller.signal
             }).then(async (res) => {
+                clearTimeout(timeoutId);
                 if (!res.ok) {
                     const errData = await res.json();
                     throw new Error(errData.detail || 'Analysis request failed.');
