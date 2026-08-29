@@ -81,6 +81,9 @@ export default function ScannerTab({
         setResult(null);
         setShowTreatmentScreen(false);
         setError(null);
+        if (typeof analyzeImage === 'function') {
+            analyzeImage(file);
+        }
     };
 
     const speakDiagnosis = () => {
