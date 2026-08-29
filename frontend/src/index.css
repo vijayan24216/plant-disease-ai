@@ -1730,3 +1730,368 @@ body {
     grid-column: 1 / -1;
   }
 }
+
+/* ==========================================
+   AUTH MODAL & MOBILE OTP LOGIN SYSTEM
+   (Inspired by Green AgriX Design System)
+   ========================================== */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.auth-modal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  position: relative;
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.auth-modal-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.auth-brand-header {
+  background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+  color: #ffffff;
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.auth-logo-badge {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-brand-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.auth-brand-sub {
+  font-size: 0.78rem;
+  color: #b2dfdb;
+  margin-top: 2px;
+}
+
+.auth-body {
+  padding: 24px 20px;
+}
+
+.auth-heading-block {
+  margin-bottom: 18px;
+}
+
+.auth-heading-block h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.auth-heading-block p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.auth-change-number-btn {
+  background: transparent;
+  border: none;
+  color: #00796b;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.auth-change-number-btn:hover {
+  text-decoration: underline;
+}
+
+.auth-error-banner {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.auth-input-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.phone-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.country-code-select {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 10px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+}
+
+.country-code-select:focus {
+  border-color: #00796b;
+}
+
+.phone-number-input {
+  flex: 1;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.phone-number-input:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.15);
+}
+
+.auth-demo-tip {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #15803d;
+  font-size: 0.78rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.auth-demo-tip:hover {
+  background: #dcfce7;
+}
+
+.auth-submit-btn {
+  margin-top: 6px;
+  padding: 14px;
+  font-size: 0.95rem;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+.auth-footer-privacy {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.35;
+}
+
+/* OTP Digits Row */
+.otp-digits-row {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.otp-digit-box {
+  width: 52px;
+  height: 58px;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #004d40;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.otp-digit-box:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.18);
+  transform: translateY(-2px);
+}
+
+.auth-resend-row {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.auth-resend-btn {
+  background: transparent;
+  border: none;
+  color: #00796b;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.auth-timer-text {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Success Body */
+.auth-success-body {
+  text-align: center;
+  padding: 36px 20px;
+}
+
+.auth-success-circle {
+  width: 68px;
+  height: 68px;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 900;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.auth-login-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-login-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.user-profile-pill {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-profile-pill:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.logout-tooltip {
+  display: none;
+  font-size: 0.68rem;
+  color: #fca5a5;
+  font-weight: 800;
+}
+
+.user-profile-pill:hover .user-phone {
+  display: none;
+}
+
+.user-profile-pill:hover .logout-tooltip {
+  display: inline;
+}

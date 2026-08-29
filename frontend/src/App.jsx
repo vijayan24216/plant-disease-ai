@@ -9,6 +9,7 @@ import WeatherRiskTab from './components/WeatherRiskTab';
 import BulletinTab from './components/BulletinTab';
 import AgriCalculatorTab from './components/AgriCalculatorTab';
 import AgriBotTab from './components/AgriBotTab';
+import AuthModal from './components/AuthModal';
 import { TRANSLATIONS } from './translations';
 
 const API_BASE_URL = 'http://localhost:8000';
@@ -18,6 +19,29 @@ export default function App() {
     const [currentLang, setLang] = useState('en');
     const [apiOnline, setApiOnline] = useState(false);
     const [showAgriBotModal, setShowAgriBotModal] = useState(false);
+    const [showAuthModal, setShowAuthModal] = useState(false);
+
+    // Farmer User Session State
+    const [user, setUser] = useState(() => {
+        try {
+            const saved = localStorage.getItem('agripulse_user');
+            return saved ? JSON.parse(saved) : null;
+        } catch (e) {
+            return null;
+        }
+    });
+
+    const handleLoginSuccess = (userData) => {
+        setUser(userData);
+        localStorage.setItem('agripulse_user', JSON.stringify(userData));
+    };
+
+    const handleLogout = () => {
+        if (window.confirm('Are you sure you want to log out of your AgriPulse account?')) {
+            setUser(null);
+            localStorage.removeItem('agripulse_user');
+        }
+    };
 
     // Single Source of Truth for Selected Crop (Default: Paddy)
     const [selectedCrop, setSelectedCrop] = useState({
@@ -190,6 +214,9 @@ export default function App() {
                 setLang={setLang}
                 apiOnline={apiOnline}
                 t={t}
+                user={user}
+                onOpenAuthModal={() => setShowAuthModal(true)}
+                onLogout={handleLogout}
             />
 
             {/* Main Active Tab Content */}
@@ -310,6 +337,13 @@ export default function App() {
                     </div>
                 </div>
             )}
+            {/* Mobile OTP Authentication Modal */}
+            <AuthModal
+                isOpen={showAuthModal}
+                onClose={() => setShowAuthModal(false)}
+                onLoginSuccess={handleLoginSuccess}
+                t={t}
+            />
         </div>
     );
 }

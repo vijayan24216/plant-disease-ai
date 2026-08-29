@@ -1,7 +1,7 @@
 import React from 'react';
 import { LANGUAGES } from '../translations';
 
-export default function Header({ currentLang, setLang, apiOnline, t }) {
+export default function Header({ currentLang, setLang, apiOnline, t, user, onOpenAuthModal, onLogout }) {
     return (
         <header className="agripulse-header">
             <div className="header-brand-row">
@@ -35,6 +35,19 @@ export default function Header({ currentLang, setLang, apiOnline, t }) {
                             ))}
                         </select>
                     </div>
+
+                    {/* User Auth Pill / Login Button */}
+                    {user ? (
+                        <div className="user-profile-pill" onClick={onLogout} title="Click to Logout">
+                            <span className="user-icon">🧑‍🌾</span>
+                            <span className="user-phone">{user.phone}</span>
+                            <span className="logout-tooltip">Logout</span>
+                        </div>
+                    ) : (
+                        <button className="auth-login-btn" onClick={onOpenAuthModal}>
+                            🔑 Login
+                        </button>
+                    )}
 
                     <button className="icon-btn" title="Notifications">
                         🔔
