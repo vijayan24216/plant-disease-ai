@@ -1,6 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t }) {
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [scrollY, setScrollY] = useState(0);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+    // Track scroll position for 3D perspective effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY || 0);
+        };
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            setMousePos({
+                x: (clientX - centerX) / 40,
+                y: (clientY - centerY) / 40
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+    // Calculate 3D tilt transformation based on scroll & cursor movement
+    const tiltStyle = {
+        transform: `perspective(1000px) rotateX(${Math.min(Math.max(mousePos.y + scrollY * 0.02, -15), 15)}deg) rotateY(${Math.min(Math.max(-mousePos.x, -15), 15)}deg) translateZ(10px)`,
+        transition: 'transform 0.15s ease-out'
+    };
+
+    const handleQuickLogin = (e) => {
+        e.preventDefault();
+        onGetStarted();
+    };
+
     return (
         <div className="landing-page-wrapper animate-fade-in">
             {/* Top Navigation Bar */}
@@ -12,177 +50,183 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
 
                 <div className="landing-nav-links">
                     <a href="#features" className="nav-link-item">Features</a>
-                    <a href="#stories" className="nav-link-item">Success Stories</a>
-                    <button className="nav-btn-login" onClick={onOpenLogin}>Login</button>
-                    <button className="nav-btn-getstarted" onClick={onGetStarted}>Get Started</button>
+                    <a href="#3d-showcase" className="nav-link-item">3D Smart Farming</a>
+                    <button className="nav-btn-login" onClick={onOpenLogin}>🔑 Login</button>
+                    <button className="nav-btn-getstarted" onClick={onGetStarted}>🚀 Get Started</button>
                 </div>
             </nav>
 
             {/* Hero Section */}
             <header className="landing-hero-section">
-                {/* Left Text Column */}
+                {/* Left Text & Quick Login Column */}
                 <div className="hero-text-col">
                     <div className="hero-badge-pill">
                         <span className="badge-pulse-dot" />
-                        50,000+ FARMS ACROSS INDIA
+                        50,000+ INDIAN FARMERS TRUST AGRIPULSE AI
                     </div>
 
                     <h1 className="hero-main-title">
-                        Your farm.<br />
-                        <span className="gradient-text">Smarter every</span><br />
-                        single day.
+                        Smarter Farming.<br />
+                        <span className="gradient-text">Higher Yields.</span><br />
+                        Zero Hassle.
                     </h1>
 
                     <p className="hero-subtitle">
-                        Crops, AI disease diagnosis, weather risk, and live mandi prices — all in one place.
-                        Built for Indian farmers who don't have time to explore complicated software.
+                        AI crop disease scanner, weather risk alerts, and live mandi market prices. Built with a simple interface designed for every farmer.
                     </p>
 
-                    <div className="hero-cta-group">
-                        <button className="btn-hero-primary" onClick={onGetStarted}>
-                            Get Started →
-                        </button>
-                        <button className="btn-hero-secondary" onClick={onSeeDemo}>
-                            See a Demo 📱
-                        </button>
-                    </div>
-
-                    {/* Trust Badges Row */}
-                    <div className="hero-trust-row">
-                        <div className="trust-item">
-                            <strong>99.4%</strong>
-                            <span>AI Accuracy</span>
-                        </div>
-                        <div className="trust-divider" />
-                        <div className="trust-item">
-                            <strong>150+</strong>
-                            <span>Mandis Linked</span>
-                        </div>
-                        <div className="trust-divider" />
-                        <div className="trust-item">
-                            <strong>8+</strong>
-                            <span>Languages</span>
+                    {/* Integrated Simplified Mobile Login Box */}
+                    <div className="hero-quick-login-card">
+                        <span className="login-card-title">📱 Quick Mobile Login</span>
+                        <form onSubmit={handleQuickLogin} className="quick-login-form">
+                            <div className="quick-input-group">
+                                <span className="flag-prefix">🇮🇳 +91</span>
+                                <input
+                                    type="tel"
+                                    placeholder="Enter 10-digit mobile number"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    maxLength="10"
+                                />
+                            </div>
+                            <button type="submit" className="btn-quick-otp">
+                                Send OTP ➔
+                            </button>
+                        </form>
+                        <div className="quick-login-footer">
+                            <button className="btn-demo-link" onClick={onSeeDemo}>
+                                ⚡ Or Explore Instant Demo Dashboard →
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                {/* Right Visual Floating Cards Column */}
-                <div className="hero-cards-col">
-                    {/* 1. Live Weather Card */}
-                    <div className="preview-card weather-preview-card">
-                        <div className="preview-card-header">
+                {/* Right Visual 3D Tilt Card Column */}
+                <div className="hero-cards-col-3d" style={tiltStyle}>
+                    {/* Main Featured 3D Agricultural Showcase Card */}
+                    <div className="agri-3d-card hero-image-card">
+                        <div className="agri-card-img-wrapper">
+                            <img
+                                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80"
+                                alt="Lush Green Agricultural Farm"
+                                className="agri-bg-img"
+                            />
+                            <div className="img-overlay-gradient" />
+                            <div className="floating-scan-badge">
+                                <span className="scan-beam" />
+                                <span>🎯 AI Leaf Scan Active</span>
+                            </div>
+                        </div>
+
+                        {/* Floating Live Data Pill */}
+                        <div className="floating-pill-3d weather-pill">
+                            <span className="pill-icon">⛅</span>
                             <div>
-                                <span className="location-name">Nashik, Maharashtra</span>
-                                <h3 className="temp-display">28.0°C</h3>
+                                <strong>28°C Optimal</strong>
+                                <span>Nashik, APMC</span>
                             </div>
-                            <div className="weather-icon-sun">⛅</div>
-                        </div>
-                        <div className="weather-weekly-mini">
-                            <div className="day-item"><span>Mon</span><strong>26°</strong></div>
-                            <div className="day-item"><span>Tue</span><strong>27°</strong></div>
-                            <div className="day-item active"><span>Wed</span><strong>28°</strong></div>
-                            <div className="day-item"><span>Thu</span><strong>29°</strong></div>
-                            <div className="day-item"><span>Fri</span><strong>30°</strong></div>
-                        </div>
-                    </div>
-
-                    {/* 2. Farm Health Gauge Card */}
-                    <div className="preview-card health-preview-card">
-                        <div className="card-top-row">
-                            <span className="preview-label">Farm Health Score</span>
-                            <span className="badge-pill badge-green">↑ Good Condition</span>
                         </div>
 
-                        <div className="health-score-gauge-row">
-                            <div className="radial-score-ring">
-                                <span className="score-num">78</span>
-                                <span className="score-denom">/100</span>
-                            </div>
-                            <div className="health-breakdown-list">
-                                <div className="breakdown-item">
-                                    <span className="lbl">Soil Moisture</span>
-                                    <div className="progress-bar"><div className="fill" style={{ width: '82%', background: '#22c55e' }} /></div>
-                                    <strong className="val">82%</strong>
-                                </div>
-                                <div className="breakdown-item">
-                                    <span className="lbl">Crop Canopy</span>
-                                    <div className="progress-bar"><div className="fill" style={{ width: '74%', background: '#f59e0b' }} /></div>
-                                    <strong className="val">74%</strong>
-                                </div>
-                                <div className="breakdown-item">
-                                    <span className="lbl">Water Index</span>
-                                    <div className="progress-bar"><div className="fill" style={{ width: '80%', background: '#3b82f6' }} /></div>
-                                    <strong className="val">80%</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3. Live Mandi Prices Preview Card */}
-                    <div className="preview-card mandi-preview-card">
-                        <div className="mandi-header">
-                            <span className="preview-label">Live Mandi Price Alert</span>
-                            <span className="live-dot-tag">● LIVE</span>
-                        </div>
-                        <div className="mandi-item-row">
-                            <div className="crop-info">
-                                <span className="crop-icon">🌾</span>
-                                <div>
-                                    <strong>Paddy (Rice) - Grade A</strong>
-                                    <span className="mandi-loc">Karnal Mandi / APMC</span>
-                                </div>
-                            </div>
-                            <div className="price-info">
-                                <strong>₹2,240 / qtl</strong>
-                                <span className="trend-up">+2.7% ↑</span>
+                        <div className="floating-pill-3d health-pill">
+                            <span className="pill-icon">💚</span>
+                            <div>
+                                <strong>94% Crop Health</strong>
+                                <span>Paddy Field 1.5 Acre</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
 
-            {/* Features Highlight Grid Section */}
+            {/* 3D Scroll Interactive Showcase Section */}
+            <section className="landing-3d-section" id="3d-showcase">
+                <div className="section-header text-center">
+                    <span className="section-subtitle">3D INTERACTIVE SMART FARMING</span>
+                    <h2 className="section-title">Experience AI Agricultural Intelligence</h2>
+                    <p className="section-desc">Scroll down to explore 3D field telemetry, disease diagnosis, and live market pricing.</p>
+                </div>
+
+                <div className="cards-grid-3d">
+                    {/* Card 1: 3D Disease Scanner */}
+                    <div className="card-3d-item" style={{
+                        transform: `perspective(1000px) rotateY(${Math.min(scrollY * 0.015, 12)}deg)`,
+                        transition: 'transform 0.2s ease-out'
+                    }}>
+                        <div className="card-3d-image-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1592417817098-8f3d6ef23a28?auto=format&fit=crop&w=600&q=80"
+                                alt="Crop Health Scan"
+                            />
+                            <span className="badge-3d-overlay">🌿 AI Diagnosis</span>
+                        </div>
+                        <div className="card-3d-content">
+                            <h3>Instant AI Disease Scanner</h3>
+                            <p>Snap a leaf photo to diagnose pests, blight, and fungal infections in under 2 seconds with 99.4% precision.</p>
+                        </div>
+                    </div>
+
+                    {/* Card 2: 3D Weather Risk */}
+                    <div className="card-3d-item" style={{
+                        transform: `perspective(1000px) rotateY(${Math.max(-scrollY * 0.015, -12)}deg)`,
+                        transition: 'transform 0.2s ease-out'
+                    }}>
+                        <div className="card-3d-image-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80"
+                                alt="Smart Agriculture Field"
+                            />
+                            <span className="badge-3d-overlay">🌦️ Weather Radar</span>
+                        </div>
+                        <div className="card-3d-content">
+                            <h3>Hyperlocal Weather & Risk</h3>
+                            <p>Receive rain forecasts and humidity outbreak alerts before fungal spores spread across your field.</p>
+                        </div>
+                    </div>
+
+                    {/* Card 3: 3D Mandi Intelligence */}
+                    <div className="card-3d-item" style={{
+                        transform: `perspective(1000px) rotateY(${Math.min(scrollY * 0.015, 12)}deg)`,
+                        transition: 'transform 0.2s ease-out'
+                    }}>
+                        <div className="card-3d-image-box">
+                            <img
+                                src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                                alt="Mandi Market Grain Harvest"
+                            />
+                            <span className="badge-3d-overlay">📊 Live Mandi</span>
+                        </div>
+                        <div className="card-3d-content">
+                            <h3>Live Mandi Rate Trends</h3>
+                            <p>Track real-time market prices across 150+ APMC mandis to sell your harvest at peak market value.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Features Highlight Section */}
             <section className="landing-features-section" id="features">
                 <div className="section-header text-center">
-                    <span className="section-subtitle">SMART FARMING POWERED BY AI</span>
-                    <h2 className="section-title">Everything you need to grow healthier crops</h2>
+                    <span className="section-subtitle">SIMPLE & POWERFUL</span>
+                    <h2 className="section-title">Designed for Indian Agriculture</h2>
                 </div>
 
                 <div className="features-grid-3col">
                     <div className="feature-card">
                         <div className="feature-icon-box">🔬</div>
                         <h3>Instant AI Disease Scan</h3>
-                        <p>Upload a leaf photo or use your smartphone camera for 99.4% instant pest & fungal diagnosis.</p>
+                        <p>Upload a leaf photo or snap with camera for 99.4% instant diagnosis & pesticide prescription.</p>
                     </div>
 
                     <div className="feature-card">
                         <div className="feature-icon-box">📊</div>
                         <h3>Live Mandi Market Rates</h3>
-                        <p>Real-time price tracking across 150+ APMC mandis with 7-day trend forecasts to maximize crop profits.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-box">🌧️</div>
-                        <h3>Weather Risk & Outbreaks</h3>
-                        <p>Hyperlocal rainfall forecasts & automated disease outbreak alerts based on humidity and temperature.</p>
+                        <p>Real-time price updates across 150+ mandis with 7-day trend forecasts to maximize profits.</p>
                     </div>
 
                     <div className="feature-card">
                         <div className="feature-icon-box">🧮</div>
                         <h3>Agronomy Dosage Calculator</h3>
-                        <p>Calculate exact NPK fertilizer, Urea, and spray tank ratios tailored to your exact field size.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-box">🤖</div>
-                        <h3>Agri-Bot AI Voice Assistant</h3>
-                        <p>Ask questions in 8+ Indian regional languages via voice or text for 24/7 expert farming advice.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-box">📜</div>
-                        <h3>Government Advisory Bulletin</h3>
-                        <p>Stay updated with official Krishi Vigyan Kendra advisories, subsidies, and modern farming techniques.</p>
+                        <p>Calculate exact NPK fertilizer, Urea, and spray tank ratios tailored to your acre field size.</p>
                     </div>
                 </div>
 
@@ -191,10 +235,11 @@ export default function LandingPage({ onGetStarted, onSeeDemo, onOpenLogin, t })
                     <h2>Ready to transform your farm?</h2>
                     <p>Join over 50,000+ farmers managing their crops with AgriPulse AI.</p>
                     <button className="btn-hero-primary cta-large" onClick={onGetStarted}>
-                        Start Free Mobile Login →
+                        Start Mobile Login →
                     </button>
                 </div>
             </section>
         </div>
     );
 }
+
